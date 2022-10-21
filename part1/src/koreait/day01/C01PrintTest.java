@@ -1,4 +1,4 @@
-package koreait.day1;
+package koreait.day01;
 
 public class C01PrintTest {		//우리가 만든 클래스
      public static void main(String[] args) {		//main 이라는 이름의 메소드 : 실행프로그램의 메소드
@@ -17,8 +17,9 @@ public class C01PrintTest {		//우리가 만든 클래스
 /*
 단축키 : 
 저장 : Ctrl+s  , 실행 : Ctrl + F11 , 
-한줄 복사 : Ctrl+Alt+위/아래방향키 , 한줄 삭제 : Ctrl+d
+한줄 복사 : Ctrl+Alt+위/아래방향키 , 한줄 삭제 : Ctrl+d 
 자동 완성 : Ctrl+스페이스바
+라인 이동 : Alt + 위/아래방향키
 
 표준 출력 : 프로그램이 처리한 결과를 콘솔(화면)에 출력한다.
 표준 입력 : 프로그램이 처리할 데이터를 콘솔(키보드)로 입력받는다.
