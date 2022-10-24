@@ -26,6 +26,9 @@ public class C10KeyInput {
 		point = sc.nextDouble();//nextDouble() 메소드는 입력받은 것을 실수로 처리합니다.
 		System.out.println("point : " + point);
 		
+		
+		
+		
 	}
 
 }
