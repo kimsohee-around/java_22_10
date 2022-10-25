@@ -37,23 +37,45 @@ public class C24EmailValid {
 		System.out.println("시작문자가 알파벳인가(메소드) ? " + isAlphabet(ch0));
 		
 		//6. 2번에서 추출한 계정이름이 5글자 이상인지?
-		System.out.println("계정이름이 5글자 이상인지?" + (email.substring(0, idx).length() > 5));
+		System.out.println("계정이름이 5글자 이상인지?" + (email.substring(0, idx).length() >= 5));
 		
 		
 		//문제 : 입력된 이메일이 사용가능한지 체크 결과 출력하기
 		//요구사항 : 1,5,6이 참이고 , '3번에서 . 문자가 1개 이상' 등 4가지 모두 만족하면 사용가능한 이메일
 		//		   사용할수 없는 이메일 일때는 이유를 알려주기.
-		boolean result;	
+		System.out.println("-----------** 문제 : 이메일주소 사용 가능?  **----------------");
+		boolean result=true;	
+		String error="";
+		//요구사항과 맞지 않느 모든 이유를 출력하는 방법
+		boolean temp = idx!=-1 && idx == email.lastIndexOf('@');	//1번 조건
+		if(!temp) {
+			result=false;
+			error += "*@ 문자는 1개만 있어야 합니다.\n"; 		//문자열에서 += 연산 : += 왼쪽 error 변수의 문자열에 += 오른쪽의 문자열을 연결합니다. 
+		}
 		
+		if(!isAlphabet(ch0)) 
+		{
+			result=false;
+			error+="*시작문자는 영문대소문자만 가능합니다.\n";       
+		}
 		
-		
-		
+		if(email.substring(0, idx).length() < 5)
+		{
+			result=false;
+			error+="*계정이름은 5글자 이상으로 합니다.\n";
+		}
+			
+		if( email.substring(idx+1).indexOf('.')==-1)
+		{
+			result=false;
+			error+="*@ 뒤의 도메인 주소에는 . 이 1개 이상이어야 합니다.";
+		}
 		
 		if(result) {
 			System.out.println("입력하신 메일주소는 사용가능합니다.");
 		}else {
-			System.out.println("이유 : ");    //불가능 사유는 꼭 여기서 출력하지 않아도 됩니다.
 			System.out.println("입력한 메일주소는 사용불가능 합니다.");
+			System.out.println("이유 : \n" + error);    //불가능 사유는 꼭 여기서 출력하지 않아도 됩니다.
 		}
 		
 		
