@@ -21,7 +21,8 @@ public class C24EmailValid {
 		System.out.println("@문자가 1개인지 확인 :" + (email.indexOf('@')==email.lastIndexOf('@')));
 		
 		//2. (1번이 참)@를 기준으로 앞의 문자열 추출하기
-		if(idx!=-1 )
+		if(idx!=-1 )		//idx 가 -1이면 @ 기호가 없다는 것이므로 아래 substring에서 오류 substring(0,-1)
+							//   ㄴ @기호가 있을때만 아래 명령 실행하도록 함.
 			System.out.println("@ 문자 앞 계정이름 추출 : " + email.substring(0, idx));
 		
 		//3. @를 기준으로 뒤의 문자열 추출하기
@@ -49,7 +50,7 @@ public class C24EmailValid {
 		System.out.println("-----------** 문제 : 이메일주소 사용 가능?  **----------------");
 		boolean result=true;	
 		String error="";
-		//요구사항과 맞지 않느 모든 이유를 출력하는 방법
+		//사용자가 입력한 문자열이 요구사항과 맞지 않는 이유들만 출력하는 방법
 		boolean temp = idx!=-1 && idx == email.lastIndexOf('@');	//1번 조건
 		if(!temp) {
 			result=false;
@@ -57,19 +58,19 @@ public class C24EmailValid {
 			//문자열에서 += 연산 : += 왼쪽 error 변수의 문자열에 += 오른쪽의 문자열을 연결합니다. 
 		}
 		
-		if(!isAlphabet(ch0)) 
+		if(!isAlphabet(ch0)) 		//! not 연산 - 매우 중요
 		{
 			result=false;
 			error+="*시작문자는 영문대소문자만 가능합니다.\n";       
 		}
 		
-		if(idx!=-1 && email.substring(0, idx).length() < 5)
+		if(idx!=-1 && email.substring(0, idx).length() < 5)		//매우 중요
 		{
 			result=false;
 			error+="*계정이름은 5글자 이상으로 합니다.\n";
 		}
 			
-		if( idx!=-1 && email.substring(idx+1).indexOf('.')==-1)
+		if(idx!=-1 && email.substring(idx+1).indexOf('.')==-1)
 		{
 			result=false;
 			error+="*@ 뒤의 도메인 주소에는 . 이 1개 이상이어야 합니다.";
