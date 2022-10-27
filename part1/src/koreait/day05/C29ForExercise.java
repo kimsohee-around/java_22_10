@@ -43,7 +43,7 @@ public class C29ForExercise {
 			}
 			
 		}
-		System.out.println("\n\n카운트 변수 없이 해보기");
+		System.out.println("\n\n::카운트 변수 없이 해보기::");
 		for(int i=1;i<=100/n;i++){
 			System.out.printf("%5d",i*n);
 			if(i%cols==0) System.out.println();
