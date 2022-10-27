@@ -25,14 +25,17 @@ public class C35Exercise {
 		for(int i=0;i<test.length();i++)	//문자열의 길이만큼 반복하기
 			System.out.println("i="+i+",문자=" + test.charAt(i));
 		
-		System.out.println("::문자열과 반복문::문자 분류하기");
+		System.out.println("::문자열과 반복문::문자 분류하기 and 알파벳만 골라서 새로운 문자열만들기");
 		int alpha=0, symbol=0, numeric=0;
 		//입력한 문자열로 영문자 ? 개, 숫자 ? 개 , 기호 ? 개   구하기
+		//문자열 += 연산 : test+="abc"; 는 test = test + "abc";(+는 연결연산)
+		String result="";		//알파벳만 골라서 새로운 문자열을 만들때 참조하는 변수
 		for(int i=0;i<test.length();i++) {
 			ch=test.charAt(i);
-			if(isAlphabet(ch))
+			if(isAlphabet(ch)) {
 				alpha++;
-			else if(isNumeric(ch))
+				result+=ch;		//*문자열+문자(char) 연산은 연결입니다.*
+			}else if(isNumeric(ch))
 				numeric++;
 			else if(isSymbol(ch))
 				symbol++;
@@ -40,6 +43,7 @@ public class C35Exercise {
 		
 		System.out.println("테스트 메시지 =" + test);
 		System.out.println("숫자 :" + numeric +" 개, 영문자 :" + alpha +" 개, 기호 :" + symbol + "개");
+		System.out.println("알파벳만 추출한 문자열 : " + result);
 	}
 	
 	//매개변수 ch의 문자가 알파벳인지 검사

@@ -25,6 +25,18 @@ public class C33MyBank {
 			System.out.print("메뉴 선택 >>> ");
 			sel = sc.nextInt();
 			
+			if(sel==1) {
+				
+			}else if(sel==2){
+				
+			}else if(sel==3) {
+				
+			}else if(sel==4) {
+				break;
+			}else {
+				
+			}
+			
 			switch(sel) {
 				case 1:   //예금 처리(예금금액입력->잔액에 더하기) 
 					System.out.print("예금액 >");
@@ -55,7 +67,7 @@ public class C33MyBank {
 				default:  //1,2,3,4 외 나머지 값일 때
 					System.out.println("잘못된 선택입니다.값은 1~4 만 입력하세요.");
 				
-			}
+			}	//switch end
 			
 			//while 반복실행부분의 마지막 부분
 		} //while end
