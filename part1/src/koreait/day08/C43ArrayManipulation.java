@@ -2,6 +2,11 @@ package koreait.day08;
 
 public class C43ArrayManipulation {
 
+	//전역변수가 선언되는 위치
+	
+	
+	
+	
 	//배열 특정 위치에 데이터 삽입/삭제
 	public static void main(String[] args) {
 
@@ -54,6 +59,7 @@ public class C43ArrayManipulation {
 	
 	//정수 배열의 값 출력하는 메소드
 	public static void arrayPrint(int[] arg) {
+		int test=99;			//test는 일반적인 지역변수로 메소드 안에서 초기화 필요.  //매개변수는 호출할때 값이 전달되는 지역변수
 		for(int i=0;i<arg.length;i++)
 			System.out.print(arg[i] + "\t");
 		System.out.println();

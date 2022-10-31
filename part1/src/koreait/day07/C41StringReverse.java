@@ -21,10 +21,10 @@ public class C41StringReverse {
 		
 		System.out.println("\n::배열 사용하여 reverse");
 		char[] result = new char[10];
-		for(int i=0;i<test.length();i++) {
+		for(int i=0;i<test.length();i++) {  // hellojava
 			int index= test.length()-1-i;  //?	"h(0)e(1)l(2)l(3)o(4)"  'o' -> result[0]
-			result[i]=test.charAt(index);
-		}
+			result[i]=test.charAt(index);  //      index위치 문자가 배열위치 i로 옵니다.
+		}									//   i + index = length-1
 		System.out.print("reverse : ");
 		System.out.println(result);		//출력할때는 자동으로 char 배열이 문자열로 변환
 		System.out.print("reverse : " + String.valueOf(result));
