@@ -3,7 +3,7 @@ package koreait.day08;
 public class C44GlobalVar {
 
 //전역(global)변수가 선언되는 위치
-//전역 변수 유형
+//전역 변수 특징 : 초기값이 자동 설정 (0, 0.0 , false, null)
 	
 	int count;				//객체를 생성해야 사용할 수 있는 변수
 	static int val;			//객체를 생성하지 않고 사용할 수 있는 변수
@@ -13,7 +13,8 @@ public class C44GlobalVar {
 //전역변수는 클래스 범위 안에서 생명주기(life cycle)를 갖는 변수입니다.
 //지역변수는 선언된 블록 {  } 안에서          "	
 	public static void main(String[] args) {
-		
+		int temp;
+//		System.out.println("temp="+temp);    //**초기화가 안된 지역변수는 사용할 때 오류
 		testMethod();
 		val=99; 
 		//num = 99;		//상수로 선언됨 . 값변경 못함.
