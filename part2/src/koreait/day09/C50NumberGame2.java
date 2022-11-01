@@ -17,7 +17,8 @@ public class C50NumberGame2 {
 		System.out.println("너 휴먼은 맞춰보세요.(" + start + "~" + end +") ");
 		
 		//컴퓨터 난수 만들기
-		int numComputer = r.nextInt(end-start+1)+start;
+//		int numComputer = r.nextInt(end-start+1)+start;
+		int numComputer = GameValue.makeRandom(start, end);
 		int numHuman;
 		int i=0;		//반복 카운트 변수 i가 max이거나 숫자를 맞출때까지 반복하기
 		GameValue gv = new GameValue(); 
@@ -59,7 +60,8 @@ public class C50NumberGame2 {
 		System.out.println("\nGameValue 객체 확인");
 		gv.print();
 		
-		sc.nextLine();		//엔터 입력 처리
+		sc.nextLine();		//do{}while; 안의 nextInt() 메소드는 엔터를 처리하지 않는다.
+							//           다음 nextLine() 메소드의 입력값이 되어버리므로 필요함.
 		
 	} //while end
 	System.out.println("::프로그램 종료::");
