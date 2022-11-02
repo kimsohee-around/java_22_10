@@ -4,9 +4,6 @@ public class C43ArrayManipulation {
 
 	//전역변수가 선언되는 위치
 	
-	
-	
-	
 	//배열 특정 위치에 데이터 삽입/삭제
 	public static void main(String[] args) {
 
