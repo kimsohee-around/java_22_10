@@ -31,13 +31,14 @@ public class IsNumeric {
 	}
 	
 	public static boolean solution0(String str) {  //
-		if(str.length()!=4 || str.length()!=6)  return false;   //길이가 조건에 맞지 않으면 false 리턴하고 메소드 종료 
+		if(str.length()!=4 && str.length()!=6)  return false;   //길이가 조건에 맞지 않으면 false 리턴하고 메소드 종료 
 		for (int i = 0; i < str.length(); i++) {
 				char c = str.charAt(i) ;
 				if(c>='A'&& c<='Z' || c>='a'&& c<='z') {	//알파벳이면 false 리턴하고 메소드 종료 
 					return false;		
 				}
 			}
+		
 		return true;		//그 외의 경우는 
 	}
 	
