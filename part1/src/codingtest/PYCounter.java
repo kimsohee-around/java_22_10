@@ -26,7 +26,7 @@ public class PYCounter {
 		return true;
 	}
 	
-	public static boolean solution2(String s) {	//이창섭
+	public static boolean solution2(String s) {	//김창섭
         boolean answer = false;
         int p = 0;  int y = 0;
         for(int i = 0; i < s.length(); i++){

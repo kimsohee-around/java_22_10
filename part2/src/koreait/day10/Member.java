@@ -18,8 +18,8 @@ public class Member {
 	public double getPoint() {
 		return point;
 	}
-	public String[] getMsg() {
-		return msg;
+	public String[] getMsg() { //msg는 참조형 변수
+		return msg;   //배열의 참조값 리턴
 	}
 	//this.age는 객체의 필드 age
 	public void setAge(int age) {  //age는 지역변수
@@ -33,7 +33,8 @@ public class Member {
 		this.point = point;
 	}
 	public void setMsg(String[] msg) {
-		this.msg = msg;
+		this.msg = msg;  //배열의 참조값 전달
+		//msg는 참조형 변수
 	}
 	
 

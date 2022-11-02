@@ -1,5 +1,7 @@
 package koreait.day10;
 
+import java.util.Arrays;
+
 public class C52MemberTest {
 //MyClass2와 Member는 형식이 같은 클래스입니다.
 	public static void main(String[] args) {
@@ -25,6 +27,16 @@ public class C52MemberTest {
 		System.out.println("\ntemp=nayeon");
 		System.out.println("temp : " + temp);
 		System.out.println("temp 나이 : " + temp.getAge());
+		
+		System.out.println("\nString 배열 인자로 전달하기");
+		momo.setMsg(new String[] {"i","am","twice"});
+		System.out.println(Arrays.toString(momo.getMsg()));
+		//Arrays.toString 기능 : 배열을 인자로 받아서 그 값들로 문자열을 생성합니다.
+		String[] msg = {"hello","twice"};
+		nayeon.setMsg(msg);
+		System.out.println(Arrays.toString(nayeon.getMsg()));
+		
+		
 		
 	}
 }
