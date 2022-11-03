@@ -26,8 +26,8 @@ public class C55NumberGameV2 {
 		
 		while(true) {
 			System.out.println("참가자 닉네임 (종료:end) >>> ");
-		//	String name = sc.nextLine();
-		//	gv.setGamer(name);
+		//	String name = sc.nextLine();     //sc.nextLine() 문자열 입력-메모리에저장-그 주소를 리턴-name변수가 주소저장
+		//	gv.setGamer(name);		//this.gamer = gamer(매개변수);
 			gv.setGamer(sc.nextLine());  //setter
 			
 		//	if(name.equals("end")) break;
@@ -54,7 +54,7 @@ public class C55NumberGameV2 {
 			
 			if(i==max) {
 				System.out.println("실패!! 주어진 기회를 다 쓰셨습니다. 게임을 다시 시작하세요.!!");
-				gv.setSuccess(false);
+				gv.setSuccess(false);  //기본값이므로 생략가능
 			}else {
 				System.out.println("숫자 맞추기 성공!!"); 
 				gv.setSuccess(true);
@@ -69,6 +69,7 @@ public class C55NumberGameV2 {
 			
 		}//while end
 		System.out.println("::프로그램 종료::");
+		
 		
 	}
 }

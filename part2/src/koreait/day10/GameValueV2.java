@@ -40,7 +40,7 @@ public class GameValueV2 {  //완료되면 구글폴더에 올려주세요
 		return count;
 	}
 	
-	public void setCount(int count) {
+	public void setCount(int count) {    //매개변수가 기본형 : 데이터를 매개변수에 복사(전달)
 		this.count = count;
 	}
 	
@@ -49,7 +49,7 @@ public class GameValueV2 {  //완료되면 구글폴더에 올려주세요
 		return gamer;
 	}
 	
-	public void setGamer(String gamer) {
+	public void setGamer(String gamer) {  //매개변수가 참조형 : 객체의 주소를 매개변수에 복사(전달)
 		this.gamer = gamer;
 	}
 	
