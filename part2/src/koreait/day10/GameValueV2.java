@@ -5,13 +5,42 @@ import java.util.Random;
 public class GameValueV2 {  //완료되면 구글폴더에 올려주세요 
 	
 	private String gamer;			//참가자 닉네임
-	int count;				//시도 횟수
-	boolean success;		//맞추기 성공여부
+	private int count;				//시도 횟수
+	private boolean success;		//맞추기 성공여부
+	public static final int MAX=5;		//객체 상관없는(모든객체에 동일한 값) 상수
+	//public final String test;		//객체마다 다른값.한번 저장한 값을 변경은 못함.
 	
 	//1. 모든 필드는 private
 	//2. 커스텀 생성자를 추가하기 : 모든 필드 초기화
 	//3. getter/setter 메소드 만들기
 	//4. public 상수 MAX을 값 5로 선언하기
+	
+	//기본생성자는 사용못합니다.커스텀생성자 있으면 기본생성자 사용여부를 직접 정의합니다.
+	
+	//커스텀 생성자
+	public GameValueV2(String gamer,int count,boolean success) {
+		this.gamer = gamer;
+		this.count=count;
+		this.success = success;
+	}
+	
+		
+	public boolean isSuccess() {
+		return success;
+	}
+	
+	public void setSuccess(boolean success) {
+		this.success = success;
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 	
 	public String getGamer() {
 		return gamer;
