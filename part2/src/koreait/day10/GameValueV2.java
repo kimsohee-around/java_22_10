@@ -15,7 +15,10 @@ public class GameValueV2 {  //완료되면 구글폴더에 올려주세요
 	//3. getter/setter 메소드 만들기
 	//4. public 상수 MAX을 값 5로 선언하기
 	
-	//기본생성자는 사용못합니다.커스텀생성자 있으면 기본생성자 사용여부를 직접 정의합니다.
+	//커스텀생성자 있으면 기본생성자 사용여부를 직접 정의합니다.기본생성자 정의안하면 사용 못합니다.
+	public GameValueV2() {
+	}
+	
 	
 	//커스텀 생성자
 	public GameValueV2(String gamer,int count,boolean success) {
@@ -49,14 +52,6 @@ public class GameValueV2 {  //완료되면 구글폴더에 올려주세요
 	public void setGamer(String gamer) {
 		this.gamer = gamer;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	public void print() {

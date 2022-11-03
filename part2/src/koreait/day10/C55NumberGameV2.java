@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class C54NumberGameV2 {
+public class C55NumberGameV2 {
 
 	
 	public static void main(String[] args) {
@@ -20,13 +20,18 @@ public class C54NumberGameV2 {
 		int numHuman;
 		int i=0;
 		
-		// 기본생성자로 객체생성은 보류
-		//GameValueV2 gv2 = new GameValueV2();   //기본생성자 정의가 안됬으므로 오류
+		// 기본생성자로 객체생성 사용하기
+		GameValueV2 gv = new GameValueV2();   
+		//gv.print();		//확인용
 		
 		while(true) {
 			System.out.println("참가자 닉네임 (종료:end) >>> ");
-			String name = sc.nextLine();
-			if(name.equals("end")) break;
+		//	String name = sc.nextLine();
+		//	gv.setGamer(name);
+			gv.setGamer(sc.nextLine());  //setter
+			
+		//	if(name.equals("end")) break;
+			if(gv.getGamer().equals("end")) break;		//getter
 			i=0;		//새로운 참가자를 위한 카운트 변수(배열 인덱스) 초기화
 			do {
 				System.out.print("너 휴먼 생각한 숫자 입력 (남은 기회 : " + (max-i) + " ) >>> ");
@@ -41,19 +46,22 @@ public class C54NumberGameV2 {
 					System.out.println("딩동댕!! 정답입니다.");
 				if(numComputer != numHuman ) i++;	//시도회수 1번 사용했으므로 카운트변수 증가
 				
-			}while(numComputer!=numHuman && i != max);   //  !(numComputer==numHuman || i == max)
+			}while(numComputer!=numHuman || i != max);
 			
 			System.out.println(Arrays.toString(values));
 			System.out.println("정답 : " + numComputer + " 시도 횟수 : " + (i+1));
-			boolean success = false;
+			gv.setCount(i+1);//setter
+			
 			if(i==max) {
 				System.out.println("실패!! 주어진 기회를 다 쓰셨습니다. 게임을 다시 시작하세요.!!");
+				gv.setSuccess(false);
 			}else {
-				System.out.println("숫자 맞추기 성공!!"); success=true;
+				System.out.println("숫자 맞추기 성공!!"); 
+				gv.setSuccess(true);
 			}
 			
-			//1건의 게임기록 저장
-			GameValueV2 gv = new GameValueV2(name, i+1, success);
+			//1건의 게임기록 setter 메소드로 저장 완료
+			
 			System.out.println("\nGameValue 객체 확인");
 			gv.print();
 			
@@ -64,3 +72,7 @@ public class C54NumberGameV2 {
 		
 	}
 }
+
+//C50: 클래스의 필드를 직접 접근. 접근권한 default -> 웹개발 할때에는 이렇게 사용 안합니다.
+//C54: 커스텀 생성자로 필드값 초기화
+//C55: 기본생성자 와 setter 메소드 

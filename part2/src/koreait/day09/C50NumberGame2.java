@@ -4,7 +4,7 @@ import java.util.Arrays;	//배열과 관련된 기능을 제공하는 클래스
 import java.util.Random;
 import java.util.Scanner;
 
-public class C50NumberGame2 {
+public class C50NumberGame2 {   
 
 	public static void main(String[] args) {
 		// start~end 난수를 컴퓨터가 정하면 사람이 알아맞추기
