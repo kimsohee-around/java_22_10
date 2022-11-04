@@ -58,9 +58,10 @@ public class C54NumberGameV2 {
 			gv[cnt] = new GameValueV2(name, i+1, success);
 			System.out.println("\nGameValue 객체 확인");
 			gv[cnt].print();
+			
+			//다음 게임 기록을 위한 변수 설정
 			cnt++;		//gv 배열 카운트 변수 증가
 			sc.nextLine();
-			
 			Arrays.fill(values, 0);		//values 배열 초기화
 			
 		}//while end
