@@ -26,8 +26,11 @@ public class ClassAB extends ClassA{
 //            다른 패키지의 자식 클래스는 사용할 수 있음. title필드
 //default 필드 name 은 오류
 
-class Test {
-	public void test() {
-		
+class Test{
+	
+	public void t() {
+	//	ClassA.dfamily();
+		ClassA.pfamily();   //public만 실행 가능   
+	//	ClassA.family();
 	}
 }

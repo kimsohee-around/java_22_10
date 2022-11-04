@@ -6,7 +6,8 @@ public class ClassA {
 	String name;
 	protected String title;
 	private String msg;
-	
+	//같은 패키지 클래스와 자식클래스만 사용할수 있는 상수
+	protected static final int max=100;
 	public String data() {
 		return ab + "," + name +"," + title + "," + msg;
 	}
@@ -19,10 +20,18 @@ public class ClassA {
 		this.msg = msg;
 	}
 	
-	protected void family() {
+	//static 메소드는 객체와 상관없으므로 인스턴스 필드값 사용 안합니다.
+	static void dfamily() {
+		System.out.println("같은 패키지에서만 사용 가능!");
+	}
+	
+	protected static void family() {
 		System.out.println("자식 클래스는 어느 패키지에서나 출력 가능!");
 	}
 	
+	public static void pfamily() {
+		System.out.println("어느 패키지에서나 모두에게 사용 가능!");
+	}
 
 }
 /*

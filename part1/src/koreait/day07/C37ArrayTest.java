@@ -3,7 +3,7 @@ package koreait.day07;
 public class C37ArrayTest {
 
 	public static void main(String[] args) {
-
+		
 		//1.배열선언 형식
 		int[] arr1 = {67,45,98,12,45,66,95};	//배열변수명 지정과 초기값 설정
 		int[] arr2 = new int[7];				//배열의 크기만 설정. 기본(default) 초기값 있나요? 답: 0
