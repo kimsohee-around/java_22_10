@@ -16,24 +16,26 @@ public class C54NumberGameV2 {
 		int start=1,end=20;
 		System.out.println("숫자 맞추기 게임 - 컴퓨터는 숫자를 결정했습니다.");
 		System.out.println("너 휴먼은 맞춰보세요.(" + start + "~" + end +") ");
-		int numComputer = GameValueV2.makeRandom(start, end);
 		int numHuman;
-		int i=0;
+		int i=0;		//values 배열 인덱스
 		
 		// 기본생성자로 객체생성은 보류
 		//GameValueV2 gv2 = new GameValueV2();   //기본생성자 정의가 안됬으므로 오류
-		
-		while(true) {
+		GameValueV2[] gv = new GameValueV2[5];	 //5개의 게임 기록을 저장
+		int cnt=0;		//gv 배열 인덱스
+		while(cnt<gv.length) {	//최대 5번 실행
+			int numComputer = GameValueV2.makeRandom(start, end);	//난수 생성
 			System.out.println("참가자 닉네임 (종료:end) >>> ");
 			String name = sc.nextLine();
 			if(name.equals("end")) break;
+			
 			i=0;		//새로운 참가자를 위한 카운트 변수(배열 인덱스) 초기화
-			do {
+			do {		//숫자 맞추기 시도
 				System.out.print("너 휴먼 생각한 숫자 입력 (남은 기회 : " + (max-i) + " ) >>> ");
 				numHuman = sc.nextInt();
 				values[i]=numHuman;		//마지막 인덱스는 max-1
 				
-				if(numComputer > numHuman) 
+				if(numComputer > numHuman) //힌트
 					System.out.println("아닙니다. 더 큰값입니다.");
 				else if(numComputer < numHuman) 
 					System.out.println("아닙니다. 더 작은값입니다.");
@@ -53,13 +55,19 @@ public class C54NumberGameV2 {
 			}
 			
 			//1건의 게임기록 저장
-			GameValueV2 gv = new GameValueV2(name, i+1, success);
+			gv[cnt] = new GameValueV2(name, i+1, success);
 			System.out.println("\nGameValue 객체 확인");
-			gv.print();
-			
+			gv[cnt].print();
+			cnt++;		//gv 배열 카운트 변수 증가
 			sc.nextLine();
 			
+			Arrays.fill(values, 0);		//values 배열 초기화
+			
 		}//while end
+		System.out.println("\n::전체 게임 기록::");
+		for(GameValueV2 g : gv)
+			 if(g !=null) g.print();
+		
 		System.out.println("::프로그램 종료::");
 		
 	}
