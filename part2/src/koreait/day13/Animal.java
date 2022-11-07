@@ -31,4 +31,14 @@ public class Animal {
 		public void setName(String name) {
 			this.name = name;
 		}
+		
+		public String animal() {
+			return "이름 : " + name + ",색상 : " + color;
+		}
 }
+
+
+
+
+
+

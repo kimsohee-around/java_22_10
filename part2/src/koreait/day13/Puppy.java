@@ -3,7 +3,7 @@ package koreait.day13;
 public class Puppy extends Animal{
 	private String type;
 	
-	//생성자 생략 가능합니다. -default 생성자 super() 호출합니다.부모클래스 생성자가 실행됩니다.
+	//기본 생성자 생략되어도 실행은되고 -default 생성자 super() 호출합니다.부모클래스 생성자가 실행됩니다.
 	
 	public String getType() {
 		return type;
@@ -21,12 +21,20 @@ public class Puppy extends Animal{
 	public void sound() {
 		System.out.println("🐶🐶🐶 멍멍 합니다.");
 	}
+	
+	@Override
+	public String animal() {
+		// super.animal() : 부모클래스가 정의한 animal() 메소드 실행. -> String 리턴
+		return super.animal() + ", 견종 : " + type;
+	}
+	
+	
 }
 
 class Frog extends Animal{
 	
 	public static void jump() {
-		System.out.println("개구리 점프합니다.");
+		System.out.println("🐸🐸🐸 점핑합니다.");
 	}
 }
 

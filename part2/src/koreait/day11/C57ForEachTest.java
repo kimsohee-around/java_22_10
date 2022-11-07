@@ -21,6 +21,7 @@ public class C57ForEachTest {
 		
 		//위 for문의 카운트 변수 i 를 배열요소 가져올때만 사용한다면
 		//향상된 for : 인덱스를 알아서 증가시키면서 배열에 값을 가져옵니다.
+//			ㄴ 카운트 변수를 1씩 증가되는 형식으로 접근할 때만 사용합니다.
 		System.out.println("\n향상된 for (sarr) 사용");
 		for(String str : sarr)   //for (가져온 배열요소 저장할 변수선언-형식일치 : 배열변수) 
 			System.out.println(str);
