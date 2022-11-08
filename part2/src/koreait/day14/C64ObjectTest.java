@@ -66,7 +66,7 @@ public class C64ObjectTest {
 
 }
 
-final class Member {	//final : 상속 못함.
+final class Member {	//final : 상속 못함.(immutable 객체 필수조건은 아닙니다.)
 	//불변 객체(객체 생성시 일단 값을 주면 변경을 못함) immutable(불변의)
 	//필드는 final , 모든필드 초기화 커스텀생성자,setter 없음.(getter 선택)
 	private final int id;	//주민등록번호와 같은 식별값.
@@ -107,13 +107,18 @@ final class Member {	//final : 상속 못함.
     	
 	@Override
 	public int hashCode() {		//객체의 주소공간은 달라도 필드값(data)이 같으면 동일한 해시코드 생성
-			return Objects.hash(name) +  Objects.hash(age) + Objects.hash(id) + Objects.hash(isAdult);
+			return Objects.hash(name) +  Objects.hash(age) + 
+					Objects.hash(id) + Objects.hash(isAdult);
+	//Objects.hash(name)는 해시함수 실행. name 문자열로 해시값을 만듭니다.
+	//           ("hello")의 인자값이 같으면 hash("hello") 결과값은 동일한 정수값. 
 	}
 	
 	@Override
 		public boolean equals(Object obj) {
 			if(obj == null)   return false;
-			if(this == obj)   return true;		//this.equals(obj)
+			if(this == obj)   return true;		
+			//sana.equals(sana2) 실행할때 this는 sana,obj는 sana2
+			
 			Member m = (Member)obj; 	//매개변수 Object 는 모든 타입이 인자가 될수 있다.
 			return this.name.equals(m.name) && this.age==m.age && this.id==m.id && 
 					this.isAdult==m.isAdult;
