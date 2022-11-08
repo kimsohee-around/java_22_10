@@ -1,0 +1,28 @@
+day14 : 추상 클래스(abstract class)
+
+1. 복습(review) : 아래와 같이 클래스 정의해보세요.
+파일명 Shape.java 에 아래의 3개 클래스를 모두 정의하세요.
+1)public 클래스이름 : Shape
+- 인스턴스 필드 : 접근권한 protected
+-        문자열 name, int는 width,height
+(*생성자와 메소드 접근권한 public)
+- 생성자 : 기본 생성자와 int 필드값 초기화 커스텀 생성자
+- 인스턴스 메소드 : 
+getArea() : 넓이를 구해서 리턴합니다.(width*height) 리턴타입 :double
+shape() : 인스턴스 필드값을 확인하기 위한 문자열 리턴
+
+(*2,3번 클래스는 Shape 상속받습니다.)
+2) 클래스 이름 : Triangle
+- 인스턴스 필드 : protected 정수 angle(각도)
+- getArea() 재정의 합니다.(삼각형 넓이=너비*높이/2)
+
+3) 클래스 이름 : Circle
+- 인스턴스 필드 : private 정수 radius(반지름)
+- getArea() 재정의 합니다.(원 넓이= Math.PI * 반지름 * 반지름)
+- 4개의 필드값 초기화 커스텀 생성자 정의해보세요. 
+           부모 클래스의 커스텀 생성자로 실행합니다.
+- getter 만 작성합니다.
+
+
+2. 추상클래스 : 1번 파일을 복사하고 이름은 AShape.java 
+ 
