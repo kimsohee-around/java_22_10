@@ -24,6 +24,10 @@ public abstract class AShape
 	//인스턴스 메소드	
 	public String shape()
 	{return name + "," + width + "," + height;}
+	
+	
+	
+	
 }	// Class end
 
 
@@ -48,13 +52,11 @@ class ACircle extends AShape
 	private int radius;
 	// private instanc1e field
 
-//생성자 오버로딩	
+
 	public ACircle(String name, int width, int height, int radius) 
-	{	// 4개의 field값 초기화 커스텀 constructor
+	{	
 		super(width,height);   //형식적인 내용만 확인하세요
 		this.name = name;
-//		this.width = width;
-//		this.height = height;
 		this.radius = radius;
 	}
 	
