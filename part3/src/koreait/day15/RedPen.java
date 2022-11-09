@@ -29,7 +29,7 @@ public class RedPen {
 		
 		//연산자에 따라 n1,n2 난수 범위를 다르게 합시다.
 		switch (op) {
-		case '+':
+		case '+':    //case 뒤에 정수,문자,문자열
 			max1=99;max2=99;min1=11;min2=11;
 			break;
 		case '-':    //n1>n2 (요구사항)  
@@ -74,5 +74,23 @@ public class RedPen {
 		}
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "RedPen [n1=" + n1 + ", n2=" + n2 + ", op=" + op + 
+				", isCorrect=" + (isCorrect? "정답" :"오답") + "]";
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
