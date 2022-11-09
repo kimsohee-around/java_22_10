@@ -1,7 +1,6 @@
 package koreait.day14;
 
 
-//toString,hashcode,equals 재정의 해보세요.
 public class ObjAnimal {
 		private String color;
 		private String name;
@@ -10,6 +9,16 @@ public class ObjAnimal {
 		public ObjAnimal() {
 			System.out.println("Animal:새로운 반려동물 가족이 생겼습니다.");
 		}
+//toString,hashcode,equals 재정의 해보세요.
+
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//인스턴스 메소드 - 인스턴스 필드값으로 동작을 합니다.
 		public void sound() {
@@ -37,6 +46,11 @@ public class ObjAnimal {
 		public String animal() {
 			return "이름 : " + name + ",색상 : " + color;
 		}
+		
+		
+		
+		
+		
 		
 		
 }
