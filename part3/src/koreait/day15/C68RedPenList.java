@@ -49,7 +49,8 @@ public class C68RedPenList {
 		System.out.println(":::틀린 문제 정답보기:::");
 		for(int i=0;i<probs.size();i++) {
 			if(!probs.get(i).isCorrect())
-				System.out.println("문제"+(i+1)+"."+probs.get(i).problem()+probs.get(i).answer());
+				System.out.println("문제"+(i+1)+"."+probs.get(i).problem()
+						+probs.get(i).answer());
 		}
 	}
 

@@ -48,7 +48,6 @@ public class C66ListLotto {
 		System.out.print("\nvalue : ");
 		for (int i=0;i<list.size();i++)
 			System.out.print(String.format("%3d", list.get(i)));
-		
 	}
 	
 }
