@@ -15,7 +15,6 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return id + "," + name + "(" + age + "), " + money + "\n";
 	}
 	
