@@ -12,6 +12,7 @@
            ㄴ Set 종류 : HashSet* , TreeSet 등이 있습니다. 
 - 인덱스(순서)가 없을 때에는 데이터요소 접근은 Iterator `인터페이스` 구현체로 합니다.
 
+
 2. Map :    ***key-value 한쌍으로 데이터를 저장. Map 장점 : key를 이용한 검색이 됩니다.
    ㄴ 데이터요소에 순서가 없습니다.
    ㄴ key값은 중복값을 허용 안함.
@@ -21,4 +22,16 @@
  get(key)   : value를 가져옵니다.
  remove(key) 또는 remove(key,value)
    
+
+3. TreeSet과 TreeMap
+Set 과 Map은 순서가 없다. 즉 인덱스를 사용할 때와 같이 위치를 지정해서 가져오지 못한다.
+그러나 데이터를 저장할 때 미리 정렬되게 할수는 있다. 
+TreeSet 은 저장되는 값을 정렬하고
+TreeMap 은 key 값으로 정렬한다.
+
+소스 : AddTwoNum.java 참고
+
+
+
+
    	 
