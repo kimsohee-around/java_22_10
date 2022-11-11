@@ -31,7 +31,7 @@ public interface InterfaceA {
 		}
 		
 		//인터페이스를 사용하는 기존 애플리케이션과 호환을 위해서
-		//추가적인 기능은 디폴트 메소드(인스턴스 메소드)로 정의해서 사용합니다. - default 키워드 꼭 작성
+		//추가적인 기능은 디폴트 메소드(인스턴스 메소드)로 정의해서 사용합니다. - default 키워드(abstract 가 아니다) 꼭 작성
 		default void methodD(String message) {	// 재정의를 위해서 만듭니다.
 			System.out.println("수신된 메시지는 " + message +" 입니다.");
 		}
