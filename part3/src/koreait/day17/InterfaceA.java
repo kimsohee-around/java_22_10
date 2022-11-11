@@ -4,7 +4,7 @@ public interface InterfaceA {
 
 //오늘의 주제 : 인터페이스 (참고 : 클래스의 상속, 추상클래스의 추상메소드가 관련성 있는 내용입니다.)	
 /*   자바인터페이스의 특징
- *   1. 객체를 직접 생성하지 않습니다.
+ *   1. 객체를 직접 생성하지 않습니다. new 연산 X
  *   2. 필드는 상수만 있습니다.		public static final 생략합니다.인스턴스 필드 없습니다.
  *   3. 추상메소드를 갖고 있습니다.    public abstract  생략합니다. 
  *   4. static 메소드와 인스턴스메소드(반드시 키워드 default 사용) 도 사용할 수 있습니다. 접근한정자 public입니다.
@@ -31,7 +31,7 @@ public interface InterfaceA {
 		}
 		
 		//인터페이스를 사용하는 기존 애플리케이션과 호환을 위해서
-		//추가적인 기능은 디폴트 메소드(인스턴스 메소드)로 정의해서 사용합니다.
+		//추가적인 기능은 디폴트 메소드(인스턴스 메소드)로 정의해서 사용합니다. - default 키워드 꼭 작성
 		default void methodD(String message) {	// 재정의를 위해서 만듭니다.
 			System.out.println("수신된 메시지는 " + message +" 입니다.");
 		}
