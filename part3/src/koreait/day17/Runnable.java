@@ -19,9 +19,21 @@ class Dog implements Runnable {
 }
 
 class People implements Runnable, Thinkable {
+	
+	private String name;
+	
+	public People(String name) {
+		this.name = name;
+		System.out.println("나는 '" +name + "' 입니다." );
+	}
+
+	public String getName() {
+		return name;
+	}
+	
 	@Override
 	public int run() {
-		System.out.println("인간이 달립니다.");
+		System.out.println("인간("+ name +")이 달립니다.");
 		return 20;
 	}
 	
