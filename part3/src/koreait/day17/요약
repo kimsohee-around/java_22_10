@@ -26,3 +26,21 @@ List<String> list = new ArrayList<>();
 인터페이스 타입으로 선언하면 해당 인터페이스의 메소드만
 구현클래스 타입으로 선언하면 모든 인터페이스 메소드를 사용할 수 있습니다.
 많은 자바API 클래스들이 인터페이스를 다중 구현하고 있습니다.
+
+
+5. 클래스의 분석 
+`java doc 11` 검색 후 오라클 사이트에서 확인합니다. 
+- 클래스의 상속 또는 구현 관계를 알수 있습니다.
+
+super class : 부모클래스
+sub class : 자식클래스
+
+super interface : 부모 인터페이스
+sub interface : 자식 인터페이스
+
+implement class : 구현 클래스가 어떤것이 있는지
+
+Implemented Interfaces: 어떤 인터페이스를 구현했는지 
+
+
+
