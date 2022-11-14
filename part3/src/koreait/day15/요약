@@ -13,7 +13,7 @@
  2. 리스트 :  인덱스를 이용해서 순차적인 접근 가능한 컬렉션
     선언 :  List<E> list = new ArrayList<>();
     List 의 종류 : *ArrayList, Vector, LinkedList 등등
-    주요 메소드 : size,add,remove,get,contains,indexOf
+    주요 메소드 : size,add,remove,get,set,contains,indexOf
                      ㄴ add 메소드 : 오버로딩. 매개변수 형식 2가지
                      
                      
