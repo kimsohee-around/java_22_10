@@ -8,7 +8,7 @@ public class C75Anonymous {   //Anonymous : 익명의 (이름이 없는)
 	public static void main(String[] args) {
 		
 		//new InterfaceA() 하면서 inner type 내부 타입의 구현 클래스를 정의
-		//   -> 객체 생성
+		//   -> 객체 생성. ia는 객체를 참조하는 변수명.
 		InterfaceA ia = new InterfaceA() {
 			
 			@Override

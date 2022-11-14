@@ -8,6 +8,7 @@ public class C77_CompareTo {
 		String na ="kim";
 		String you="momo";
 		String he = "Son";
+		na="mi";
 		
 		//String은 알파벳(사전식)비교    : 대문자 < 소문자
 		System.out.println("kim과 momo : " + na.compareTo(you));  //-2(음수) : "kim" < "momo", "kim"- "momo"<0
