@@ -15,6 +15,9 @@
     List 의 종류 : *ArrayList, Vector, LinkedList 등등
     주요 메소드 : size,add,remove,get,set,contains,indexOf
                      ㄴ add 메소드 : 오버로딩. 매개변수 형식 2가지
+   
+   배열에서 인덱스 3번 값을 변경한다.  arr[3] =11;
+   리스트에서       "             list.set(3,11);
                      
                      
  3.List<RedPen> probs = new ArrayList<>(); 로 선언된 리스트에 대해
