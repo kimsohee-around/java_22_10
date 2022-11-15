@@ -2,7 +2,7 @@ package koreait.day14;
 
 import java.util.Objects;
 import java.util.Random;
-
+//아래에 불변객체 Member 있음.
 public class C64ObjectTest {
 
 	public static void main(String[] args) {
