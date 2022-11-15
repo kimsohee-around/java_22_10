@@ -1,6 +1,6 @@
 package koreait.day19;
 
-public class Score {
+public class Score {		//성적관련 클래스
 	private String name;
 	private int korean;
 	private int english;
@@ -42,7 +42,7 @@ public class Score {
 		else this.grade="F";
 	}
 	
-	String getGrade() {
+	public String getGrade() {
 		setGrade();
 		return grade;
 	}
@@ -52,11 +52,11 @@ public class Score {
 		return name;
 	}
 	
-	int getKorean() {
+	public int getKorean() {
 		return korean;
 	}
 	
-	int getEnglish() {
+	public int getEnglish() {
 		return english;
 	}
 	
