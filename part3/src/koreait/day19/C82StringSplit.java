@@ -66,7 +66,7 @@ public class C82StringSplit {
 		
 		temp = "모모 [90,88,79]\n나나 [78,83,79]\n신비 [92,73,66]\n은하 [78,88,99]";
 		List<Score> scores = new ArrayList<>();		// 토크나이저 활용 
-		stk = new StringTokenizer(temp,",[]");		//공백과 줄바꿈은 생략가
+		stk = new StringTokenizer(temp," ,[]\n");	//여러개 구분기호 사용할때 공백,줄바꿈 생략못함		
 		System.out.println("5.토크나이저  Score 객체 생성 리스트에 추가");
 		while(stk.hasMoreTokens()) {
 			/*
@@ -96,7 +96,7 @@ public class C82StringSplit {
 		for(String t : r) 
 			System.out.println(t);
 		
-		//Score 리스트 만드는것은 토크나이저 활용이 적합합니다.
+		//Score 리스트 만드는 것은 토크나이저 활용이 적합합니다.
 		
 	}
 

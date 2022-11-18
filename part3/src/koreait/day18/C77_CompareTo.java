@@ -5,8 +5,8 @@ public class C77_CompareTo {
 	public static void main(String[] args) {
 //기본형 타입 Wrapper 클래스와 String 클래스에는  compareTo 메소드가 있습니다.:값의 비교
 		
-		String na ="kim";
-		String you="momo";
+		String na ="k";
+		String you="m";
 		String he = "Son";
 		na="mi";
 		
