@@ -23,14 +23,14 @@ CREATE TABLE tbl_string(
 --                 : GUI 로 하면 속도가 작업 속도가 느려요.
 --INSERT INTO 테이블명 (컬럼명,컬럼명,....) VALUES (컬럼순서에 대응되는 값,값,...);
 -- 고정길이 형식은 지정된 길이를 맞추기 위해 공백을 추가
--- 1) 길이가 바이트로 지정된 컬럼
+-- 1) 고정길이가 바이트로 지정된 컬럼
 INSERT INTO TBL_STRING (acol) VALUES ('abcd');
 INSERT INTO TBL_STRING (acol) VALUES ('abcd123456');
 INSERT INTO TBL_STRING (acol) VALUES ('abcd1234567');
 INSERT INTO TBL_STRING (acol) VALUES ('가나');			-- 한글은 1글자가 3바이트
 INSERT INTO TBL_STRING (acol) VALUES ('가나다');
 INSERT INTO TBL_STRING (acol) VALUES ('가나다라');
--- 2) 길이가 문자로 지정된 컬럼
+-- 2) 고정길이가 문자로 지정된 컬럼
 -- 위의 6개 insert 를 ccol 으로 insert 실행하기
 INSERT INTO TBL_STRING (ccol) VALUES ('abcd');
 INSERT INTO TBL_STRING (ccol) VALUES ('abcd123456');
@@ -40,11 +40,34 @@ INSERT INTO TBL_STRING (ccol) VALUES ('가나다');
 INSERT INTO TBL_STRING (ccol) VALUES ('가나다라');
 
 
+-- 가변길이 형식은 최대 길이를 지정하고 입력되는 데이터만큼 저장공간 정해짐. 
+-- 1) 가변길이가 바이트수로 지정된 컬럼
+INSERT INTO TBL_STRING (bcol) VALUES ('abcd');
+INSERT INTO TBL_STRING (bcol) VALUES ('abcd123456');
+-- INSERT INTO TBL_STRING (bcol) VALUES ('abcd1234567');
+INSERT INTO TBL_STRING (bcol) VALUES ('가나');			-- 한글은 1글자가 3바이트
+INSERT INTO TBL_STRING (bcol) VALUES ('가나다');
+--INSERT INTO TBL_STRING (bcol) VALUES ('가나다라');
+-- 2) 가변길이가 문자로 지정된 컬럼
+-- 위의 6개 insert 를 ccol 으로 insert 실행하기
+INSERT INTO TBL_STRING (dcol) VALUES ('abcd');
+INSERT INTO TBL_STRING (dcol) VALUES ('abcd123456');
+INSERT INTO TBL_STRING (dcol) VALUES ('abcd1234567');   -- 오류
+INSERT INTO TBL_STRING (dcol) VALUES ('가나');			
+INSERT INTO TBL_STRING (dcol) VALUES ('가나다');
+INSERT INTO TBL_STRING (dcol) VALUES ('가나다라');			-- 정상실행
+
+
 -- 테이블의 데이터를 조회는 명령어
 -- TBL_STRING 테이블의 acol 컬럼을 조회하기
 SELECT acol FROM TBL_STRING ts ;		-- ts는 별칭으로 디비버가 자동으로 만들어줍니다.
 SELECT acol,bcol FROM TBL_STRING ts ;
 SELECT * FROM TBL_STRING ts ;			-- 테이블의 모든 컬럼 조회 (* 기호 사용)
+-- select 조회 결과는 row(행)의 갯수로도 표시가 됩니다.
 
+INSERT INTO TBL_STRING(acol,ccol) VALUES ('가나다','가나다2');
+
+-- 모든 컬럼의 값을 추가할때는 컬럼명 생략.
+INSERT INTO TBL_STRING VALUES ('abc1','abc2','abc3','abc4');
 
 
