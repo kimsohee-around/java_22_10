@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class C83ExceptionTest {
 
 	public static void main(String[] args) {
-
+		
 		
 //Exception 예시2
 	Scanner sc = new Scanner(System.in);
