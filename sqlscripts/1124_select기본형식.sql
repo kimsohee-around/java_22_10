@@ -57,7 +57,8 @@ SELECT * FROM TBL_MEMBER tm WHERE mno ='abc';		-- 오류 :자동 캐스팅 못�
 SELECT * FROM TBL_MEMBER tm WHERE mno <4;
 SELECT * FROM TBL_MEMBER tm WHERE mno IN (1,2,5,7);
 
-
+SELECT * FROM TBL_MEMBER tm  WHERE mno >=3 AND mno <=6;	-- 3~6	
+SELECT * FROM TBL_MEMBER tm where mno BETWEEN 3 AND 6;
 
 
 

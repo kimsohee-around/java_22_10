@@ -39,6 +39,7 @@ CREATE TABLE tbl_member2 (
 	join_date DATE	DEFAULT sysdate   -- sysdate : 오라클 함수(현재날짜/시간)		
 );
 -- 테이블에서 기본키 컬럼을 설정하는 것은 필수.
+-- 기본키 컬럼은 1개 컬럼 (*또는 여러개 컬럼을 묶어서 할수 있습니다.)
 
 INSERT INTO TBL_MEMBER2 VALUES (1,'김모모','momo@naver.com','2022-11-24');
 INSERT INTO TBL_MEMBER2 VALUES (1,'박나연','parkny@gmail.com','2022-10-24');  -- 오류
@@ -48,7 +49,28 @@ INSERT INTO TBL_MEMBER2 VALUES (5,'이나연','parkny@gmail.com','2020-10-05'); 
 INSERT INTO TBL_MEMBER2(mno,name) VALUES (6,'강쯔위');     -- 필수 입력컬럼만 저장
 SELECT * FROM TBL_MEMBER2 tm ;
 
+-- 4) check 제약 조건 : 컬럼값의 범위를 설정
+-- 참고 : 새로운 컬럼을 추가하는 명령은 테이블 변경  : alter table 테이블명 add 컬럼명
+ALTER TABLE TBL_MEMBER2 ADD address varchar2(100);
+ALTER TABLE TBL_MEMBER2 ADD age number(3) CHECK (age BETWEEN 11 AND 99);
+-- age 컬럼의 필드값을 11~99 사이로 하는 check 조건 테스트
+INSERT INTO TBL_MEMBER2(mno,name) VALUES (7,'이순신');		-- CHECK 값 범위는 NULL 허용
+INSERT INTO TBL_MEMBER2(mno,name,age) VALUES (8,'이순신',11);
+INSERT INTO TBL_MEMBER2(mno,name,age) VALUES (9,'강감찬',111);   -- 오류 : 허용된 범위 아님
 
+ALTER TABLE TBL_MEMBER2 ADD gender char(20) CHECK (gender IN ('M','F','MF','m','f','mf'));
+INSERT INTO TBL_MEMBER2(mno,name,gender) VALUES (10,'최영웅','M'); 
+INSERT INTO TBL_MEMBER2(mno,name,gender) VALUES (11,'최영웅','C');   -- 오류 : 
+
+-- 기존테이블에서 이미 있는 컬럼을 제거
+ALTER TABLE TBL_MEMBER2 DROP COLUMN gender;
+
+-- SQL 명령어에서 주로 쓰이는 단어 : 
+-- (오라클 객체-테이블,사용자.. 대상)create, alter, drop , add   / (데이터 행/컬럼 대상) insert , update ,delete 
+
+-- 참고 : between 연산
+SELECT * FROM TBL_MEMBER2 tm  WHERE mno >=3 AND mno <=6;	-- 3~6	
+SELECT * FROM TBL_MEMBER2 tm where mno BETWEEN 3 AND 6;
 
 
 
