@@ -13,7 +13,7 @@ SELECT * FROM tbl_const1;
 
 -- 제약조건 적용
 INSERT INTO tbl_const1(mno) VALUES (200);    -- 오류 : id컬럼값은 필수 입력 항목
-INSERT INTO tbl_const1(id) VALUES (998);
+INSERT INTO tbl_const1(id) VALUES (998);  -- mno는 NULL 
 
 -- 2) UNIQUE 제약조건 : null 은 허용, 동일한 컬럼에 동일한 값은 저장 못함.
 CREATE TABLE tbl_const2(
