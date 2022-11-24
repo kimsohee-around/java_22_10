@@ -58,7 +58,7 @@ INSERT INTO TBL_MEMBER2(mno,name) VALUES (7,'이순신');		-- CHECK 값 범위�
 INSERT INTO TBL_MEMBER2(mno,name,age) VALUES (8,'이순신',11);
 INSERT INTO TBL_MEMBER2(mno,name,age) VALUES (9,'강감찬',111);   -- 오류 : 허용된 범위 아님
 
-ALTER TABLE TBL_MEMBER2 ADD gender char(20) CHECK (gender IN ('M','F','MF','m','f','mf'));
+ALTER TABLE TBL_MEMBER2 ADD gender char(20) CHECK (gender IN ('M','F','MF'));
 INSERT INTO TBL_MEMBER2(mno,name,gender) VALUES (10,'최영웅','M'); 
 INSERT INTO TBL_MEMBER2(mno,name,gender) VALUES (11,'최영웅','C');   -- 오류 : 
 
