@@ -25,6 +25,8 @@ INSERT  INTO TBL_NUMBER (xcol) VALUES (12345.678);    -- 정수,소수점 포함
 INSERT  INTO TBL_NUMBER (ycol) VALUES (12345.678);    -- 반올림해서 정수로 저장
 INSERT  INTO TBL_NUMBER (ycol) VALUES (123456.678);   -- 오류 :(5)에서 정수는 최대 5자리
 INSERT  INTO TBL_NUMBER (ycol) VALUES (456.6);   -- 457
+INSERT INTO TBL_NUMBER (ycol) VALUES (99999);
+INSERT INTO TBL_NUMBER (ycol) VALUES (-99999);
 
 -- 3. zcol 테스트 : zcol number(7,2) 에서 정수자리는 최대 7-2=5 입니다.
 INSERT INTO TBL_NUMBER (zcol) VALUES (1235.6);
