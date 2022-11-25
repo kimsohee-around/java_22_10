@@ -8,7 +8,7 @@ public interface Runnable {   //run : 달리다
 
 }
 
-//인터페이스의 구현체
+//Runnable 인터페이스의 구현체
 class Dog implements Runnable {
 	
 	@Override

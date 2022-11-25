@@ -31,7 +31,7 @@ public class C73InterfaceTest {
 		
 		
 		System.out.println("\n*People 이 Runnable 타입일때");
-		//Runnable run2 = peo;
+		//선언 예시 : Runnable run2 = peo;
 		System.out.println("People 객체이지만 Thinkable 메소드 사용 못함.");
 		//run2.calculate(2222222, 3333333);
 		//run2.think();
@@ -46,13 +46,13 @@ public class C73InterfaceTest {
 		nana.calculate(100, 200);
 		nana.think();
 		
-		//Runnable run2 = peo;
+		//Runnable run2 = peo; 로 선언됨
 		System.out.println("\n타입 캐스팅");
 		Thinkable th = (Thinkable)run2;
-		
-		//Thinkable peo2 = new People();
+		th.think();
+		//Thinkable peo2 = new People(); 선언됨.
 		Runnable ru = (Runnable)peo2;
-		
+		ru.run();
 		
 		Scanner sc = new Scanner(System.in);
 		sc.close();

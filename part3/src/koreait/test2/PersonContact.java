@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-
+//작성자 : 김땡땡
+//문제와 관련 없는것은 지우세요. 
+//코드 옆에 몇번 답인지 작성하세요.(주석)
 public class PersonContact {
 
 	public static void main(String[] args) {
@@ -14,6 +16,7 @@ public class PersonContact {
 		boolean run=true;
 		List<Person> contacts = new ArrayList<>();
 		System.out.println("내 연락처 프로그램 입니다.");
+		//파일 내용을 Person객체 List 로 합니다.
 		fileRead(contacts,"D:\\iclass1020\\내연락처.txt");	//저장된 데이터 파일에서 읽어오기
 		
 		while(run) {
@@ -21,7 +24,7 @@ public class PersonContact {
 			String sel = sc.nextLine();
 			String name,mobile; int group;
 			switch (sel) {
-			case "n":		//1.새 연락처 저장
+			case "n":		//1.새 연락처 저장    
 				System.out.print("이름 입력 >>> ");
 				name = sc.nextLine();
 				System.out.print("휴대전화 입력 >>> ");
@@ -41,7 +44,12 @@ public class PersonContact {
 				
 			case "a":		//전체 보기
 				System.out.println("👩‍👩‍👧 연락처 전체 목록 👩‍👩");
-				System.out.println(contacts);
+				//System.out.println(contacts);
+				System.out.println(String.format("%-20s\t%-20s", "이름","휴대 전화"));
+				System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::");
+				for(Person temp : contacts ) {
+					System.out.println(String.format("%-20s\t%-20s", temp.getName(),temp.getMobile()));
+				}	
 				break;
 				
 			case "e":
