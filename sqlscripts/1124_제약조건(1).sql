@@ -47,7 +47,9 @@ INSERT INTO TBL_MEMBER2 VALUES (3,NULL,'slgichoi@naver.com','2021-09-24');   -- 
 INSERT INTO TBL_MEMBER2 VALUES (4,'박사나','parkny@gmail.com','2022-10-05');
 INSERT INTO TBL_MEMBER2 VALUES (5,'이나연','parkny@gmail.com','2020-10-05');   -- 오류
 INSERT INTO TBL_MEMBER2(mno,name) VALUES (16,'강쯔위');     -- 필수 입력컬럼만 저장
-SELECT * FROM TBL_MEMBER2 tm ;
+SELECT * FROM TBL_MEMBER2 tm ;   -- 모든 행
+SELECT * FROM TBL_MEMBER2 tm WHERE name='이순신';   -- 여러 행이 조회되는 조건
+SELECT * FROM TBL_MEMBER2 tm WHERE mno=2;		-- 기본키 컬럼 조건식은 1개 행만 조회 (=> 행을 식별)
 
 -- 4) check 제약 조건 : 컬럼값의 범위를 설정
 -- 참고 : 새로운 컬럼을 추가하는 명령은 테이블 변경  : alter table 테이블명 add 컬럼명
