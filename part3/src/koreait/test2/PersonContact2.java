@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 //문제와 관련 없는것은 지우세요. 
 //코드 옆에 몇번 답인지 작성하세요.(주석)
 public class PersonContact2 {
-
+	//전역변수는 해당 클래스에서 공통으로 사용할 수 있는 변수
 	private static List<Person> contacts = new ArrayList<>();
 
 	public static void main(String[] args) {
