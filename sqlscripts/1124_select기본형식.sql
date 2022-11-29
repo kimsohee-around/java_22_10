@@ -20,7 +20,7 @@ INSERT INTO TBL_MEMBER(MNO,NAME,JOIN_DATE) VALUES (9,'이순신','2020-05-05');
 
 
 -- select 기본형식
--- select 조회할 컬럼 목록 from 테이블명 [where 조건식];  
+-- select 조회할 컬럼 목록 from 테이블명 [where 조건식][order by 컬럼명,..];  
 SELECT mno,join_date FROM TBL_MEMBER tm ;
 SELECT * FROM TBL_MEMBER tm ;		-- *는 모든 컬럼
 
@@ -60,12 +60,25 @@ SELECT * FROM TBL_MEMBER tm WHERE mno IN (1,2,5,7);
 SELECT * FROM TBL_MEMBER tm  WHERE mno >=3 AND mno <=6;	-- 3~6	
 SELECT * FROM TBL_MEMBER tm where mno BETWEEN 3 AND 6;
 
+-- 정렬방식 테스트
+SELECT * FROM TBL_MEMBER tm 
+where mno BETWEEN 3 AND 6
+ORDER BY name;			-- name 컬럼값 사전순서로 정렬(기본 오름차순 asc)
+
+SELECT * FROM TBL_MEMBER tm 
+where mno BETWEEN 3 AND 6
+ORDER BY mno desc;		-- mno 컬럼값 역순(내림차순) 정렬
+
+-- 가장 최근에 가입한 회원부터 조회결과 보여주기
+SELECT * FROM TBL_MEMBER tm 
+where mno BETWEEN 3 AND 6
+ORDER BY JOIN_DATE desc;  -- descending
+
+SELECT * FROM TBL_MEMBER tm 
+ORDER BY JOIN_DATE desc;
 
 
-
-
-
-
-
+SELECT * FROM TBL_MEMBER tm 
+ORDER BY JOIN_DATE DESC, mno;		--첫번째 기준 join_date , 첫번째 기준 컬럼값 같은 경우 두번째 기준은 mno
 
 
