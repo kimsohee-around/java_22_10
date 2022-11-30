@@ -51,7 +51,7 @@ WHERE STUNO ='2021001';
 SELECT count(*) "개수",avg(jumsu) "평균",sum(jumsu) "합계"
 FROM TBL_SQSCORE ts 
 WHERE STUNO ='2020017';
--- 확인 : 집계함수에는 다른 컬럼 포함 안됩니다.(오류)
+-- 확인 : 집계함수 select 에는 다른 컬럼(stuno) 포함 안됩니다.(오류)
 SELECT stuno,count(*) "개수",avg(jumsu) "평균",sum(jumsu) "합계"
 FROM TBL_SQSCORE ts 
 WHERE STUNO ='2020017';
@@ -105,7 +105,7 @@ SELECT stuno,count(*) "개수"   -- 그룹화에 사용한 컬럼은 조회 가�
 FROM TBL_SQSCORE ts 
 GROUP BY stuno			
 -- HAVING "개수" > =3			-- HAVING 에서는 별칭 사용 못함.
-HAVING count(*) > =3			
+HAVING count(*) > =3		-- having 은 집계함수 결과로 조건식 사용할때	
 ORDER BY "개수" desc;			-- 그룹화 후에 정렬
 
 -- 점수가 85점 이상인 행만 `학번` 컬럼으로 그룹화 : 개수,평균 조회
