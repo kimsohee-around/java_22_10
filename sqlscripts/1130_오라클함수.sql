@@ -35,3 +35,94 @@ SELECT floor(3.177567) FROM dual;
 -- 변환함수 : nvl()  : 널값을 지정된 값으로 출력,  decode() 조건에 따라 출력값을 정함.
 
 -- 날짜함수:
+SELECT sysdate,SYSTIMESTAMP 			-- 서버의 날짜(초단위)와 시간(ms)
+FROM dual;
+
+SELECT CURRENT_DATE ,CURRENT_TIMESTAMP   -- 클라이언트의 날짜와 시간(tz 표시)
+FROM dual;
+
+SELECT * FROM v$timezone_names;			-- 오라클의 타임존 저장 테이블
+
+CREATE TABLE tbl_datentime(
+	adate DATE,
+	b_timestamp timestamp,
+	c_timewz timestamp(6) WITH time ZONE   
+	-- 6이 0.000001 (us) , 3이면 ms,9이면 ns 단위까지 표시
+);
+
+-- insert 값 문자열에서 날짜타입으로 자동변환
+INSERT INTO TBL_DATENTIME(adate) VALUES ('2022-11-26');
+INSERT INTO TBL_DATENTIME(b_timestamp) VALUES ('2022-11-27');
+INSERT INTO TBL_DATENTIME(c_timewz) VALUES ('2022-11-28');   -- 오류:자동변환X
+
+INSERT INTO TBL_DATENTIME(adate) VALUES ('2022-11-26 1:11');	-- 오류
+INSERT INTO TBL_DATENTIME(b_timestamp) VALUES ('2022-11-27 2:22');  -- 실행
+INSERT INTO TBL_DATENTIME(c_timewz) VALUES ('2022-11-28 3:33'); -- 오류
+
+INSERT INTO tbl_datentime(adate) values(sysdate);
+INSERT INTO tbl_datentime(b_timestamp) values(sysdate);
+INSERT INTO tbl_datentime(c_timewz) values(sysdate);
+
+INSERT INTO tbl_datentime(adate) values(systimestamp);
+-- 컬럼형식 timestamp 이고 값도 systimestamp 이면 1/1000 초까지 출력
+INSERT INTO tbl_datentime(b_timestamp) values(systimestamp);
+INSERT INTO tbl_datentime(c_timewz) values(systimestamp);
+
+-- **to_date 함수 : 문자열을 날짜형식으로 패턴 지정해서 변환(보통 insert)
+INSERT INTO TBL_DATENTIME(adate) 
+VALUES ('2022-11-26 13:11');  -- 오류 : DATE 타입은 시간까지 변환 못함
+SELECT * FROM tbl_datentime;
+
+INSERT INTO TBL_DATENTIME(adate) 
+VALUES (to_date('2022-11-26 1:11','yyyy-mm-dd HH:MI'));  -- 참고 :HH는 12시 기준(많이쓰이지 않습니다.)
+
+INSERT INTO TBL_DATENTIME(adate) 
+VALUES (to_date('2022-11-26 13:11','yyyy-mm-dd HH:MI'));  -- 오류 : HH는 12시 형식
+
+INSERT INTO TBL_DATENTIME(adate) 
+VALUES (to_date('2022-11-26 13:12','yyyy-mm-dd HH24:MI'));  -- **HH24는 24시간 기준**
+
+INSERT INTO TBL_DATENTIME(adate) 
+VALUES (to_date('2022-11-26 13:13:12','yyyy-mm-dd HH24:MI:SS'));  
+-- **to_char 함수 : 날짜형식 컬럼을 원하는 패턴 문자열로 변환 출력(select)
+SELECT to_char(c_timewz,'yyyy-mm-dd HH:MI PM') 
+FROM TBL_DATENTIME ;
+SELECT c_timewz FROM tbl_datentime;
+
+-- 날짜 관련 처리함수
+SELECT ADD_MONTHS(SYSDATE,3)     --오늘날짜  3개월 이후
+FROM dual ;
+
+SELECT TO_CHAR(SYSDATE, 'MONTH') CHARTEST 
+FROM dual ;  -- 11월
+
+SELECT TO_CHAR(SYSDATE, 'YYYY') CHARTEST 
+FROM dual ;  -- 
+
+SELECT 
+TO_CHAR(ADD_MONTHS(SYSDATE,3),'YYYY/MM/DD')   -- 문자열패턴 기호 - 또는 / 또는 구분기호없음가능
+FROM dual ;
+
+SELECT MONTHS_BETWEEN(TO_DATE('2022/06/05') , -- 지정된 2개의 날짜 사이에 간격(월).결과는 소수점
+TO_DATE('2022/09/23')) FROM dual ;
+
+SELECT TRUNC(SYSDATE) - TO_DATE('20171110', 'YYYYMMDD') -- 2개의 날짜형식 값 간격(일)
+FROM DUAL;    -- 2개의 날짜의 간격(일) . TRUNC(SYSDATE)는 일(day)까지로 변환
+
+SELECT round(to_date('2022-06-28'),'YEAR')		-- 년도를 반올림으로 구하기 (1월~6월은 년도 증가X)
+FROM dual;		-- '2022-06-28' 자동변환변환 형식은 패턴 생략
+
+SELECT round(to_date('2022-07-28'),'YEAR')      -- 년도를 반올림으로 구하기 (7월~12월은 년도 증가)
+FROM dual;
+
+SELECT TO_DATE('2017-12-02','YYYY-MM-DD') -  TO_DATE('2017-11-29', 'YYYY-MM-DD') 
+FROM DUAL;
+
+
+
+
+
+
+
+
+
