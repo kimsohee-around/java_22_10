@@ -16,7 +16,7 @@ FROM TBL_STUDENT ts ,TBL_SCORE ts2 ;
 -- 형식 1 테스트
 SELECT * 			-- 모든 컬럼
 FROM TBL_STUDENT ts ,TBL_SCORE ts2 		-- 조인할 테이블 2개 나열
-WHERE ts.STUNO = ts2.STUNO ;			-- `조인할 테이블의 공통컬럼이 같을때` 라는 조건(join 에서 필수조건)
+WHERE ts.STUNO = ts2.STUNO ;			-- `조인할 테이블의 공통컬럼이 같을때` 라는 조건(join 에서 필수조건) -> 조인 조건
 
 SELECT ts.STUNO ,NAME ,AGE ,ts2.SUBJECT ,ts2.JUMSU  -- 컬럼 지정 (ts2.XXXX 에서 ts2는 생략가능)
 FROM TBL_STUDENT ts ,TBL_SCORE ts2 
@@ -33,7 +33,7 @@ FROM TBL_STUDENT ts
 JOIN TBL_SCORE ts2 
 ON ts.STUNO = ts2.STUNO ;
 
--- join 과 조건식
+-- join 과 추가 조건식
 SELECT ts.STUNO ,NAME ,AGE ,ts2.SUBJECT ,ts2.JUMSU  -- 컬럼 지정
 FROM TBL_STUDENT ts ,TBL_SCORE ts2 
 WHERE ts.STUNO = ts2.STUNO AND ts2.SUBJECT ='영어' ;
