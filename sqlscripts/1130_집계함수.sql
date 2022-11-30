@@ -83,3 +83,35 @@ JOIN TBL_SQSCORE sco
 ON stu.STUNO = sco.STUNO
 AND NAME ='김모모';
 
+-- 행 그룹화와 그룹함수 : 집계 함수는 그룹함수로 그룹화 후 함수를 실행합니다.
+-- select 집계함수 from 테이블 이름  
+-- [WHERE] 그룹화 하기 전에 사용할 조건식
+-- GROUP BY 그룹화에 사용할 컬럼명
+-- [HAVING] 그룹화 결과에 대한 조건식
+-- [ORDER BY] 그룹화 결과 정렬할 컬럼명과 방식
+
+-- `학번`으로 그룹화하여 카운트를 구합니다.
+SELECT count(*)
+FROM TBL_SQSCORE ts 
+GROUP BY stuno;
+
+SELECT stuno,count(*) "개수"   -- 그룹화에 사용한 컬럼은 조회 가능.
+FROM TBL_SQSCORE ts 
+GROUP BY stuno			
+ORDER BY "개수" desc;			-- 그룹화 후에 정렬
+
+-- 그룹화 결과 행의 개수가 3이상이것만 조회
+SELECT stuno,count(*) "개수"   -- 그룹화에 사용한 컬럼은 조회 가능.
+FROM TBL_SQSCORE ts 
+GROUP BY stuno			
+-- HAVING "개수" > =3			-- HAVING 에서는 별칭 사용 못함.
+HAVING count(*) > =3			
+ORDER BY "개수" desc;			-- 그룹화 후에 정렬
+
+-- 점수가 85점 이상인 행만 `학번` 컬럼으로 그룹화 : 개수,평균 조회
+SELECT stuno,count(*) "개수",avg(jumsu) "평균"   -- 그룹화에 사용한 컬럼은 조회 가능.
+FROM TBL_SQSCORE ts 
+WHERE JUMSU >=85
+GROUP BY stuno;	
+
+
