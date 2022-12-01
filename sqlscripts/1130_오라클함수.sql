@@ -33,6 +33,9 @@ SELECT floor(3.177567) FROM dual;
 
 -- 외부평가 실기에 자주 사용하는 함수.
 -- 변환함수 : nvl()  : 널값을 지정된 값으로 출력,  decode() 조건에 따라 출력값을 정함.
+-- 					decode(컬럼명,'A','VIP','B','일반','C','직원') 으로 하면
+--					지정된 컬럼값이 'A' 일때는 'VIP' 출력,'B'는'일반','C'는 '직원' 출력함
+-- 예시 : select custno,decode(grade,'A','VIP','B','일반','C','직원') from member_tbl_02;
 
 -- 날짜함수:
 SELECT sysdate,SYSTIMESTAMP 			-- 서버의 날짜(초단위)와 시간(ms)
