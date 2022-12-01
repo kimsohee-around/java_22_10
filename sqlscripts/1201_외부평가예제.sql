@@ -27,8 +27,8 @@ create table money_tbl_02 (
 create sequence seq_custno start with 100001;
 -- insert 중에 오류 생기면 시퀀스는 그래도 증가. 문제 예시와 값이 다릅니다.
 -- 평가할 때에는 시퀀스 삭제, 테이블 데이터 삭제하고 다시 실행.
-DROP SEQUENCE seq_custno;
-TRUNCATE TABLE member_tbl_02;
+DROP SEQUENCE seq_custno;			-- 시퀀스 삭제
+TRUNCATE TABLE member_tbl_02;		-- 데이터삭제
 
 -- 3. 샘플데이터 추가 (컬럼 형식과 값 형식 일치시키기 : 자동변환에 주의)
 INSERT INTO MEMBER_TBL_02 
@@ -40,7 +40,8 @@ INSERT INTO MEMBER_TBL_02 VALUES (seq_custno.nextval, '최사랑', '010-1111-555
 INSERT INTO MEMBER_TBL_02 VALUES (seq_custno.nextval, '진평화', '010-1111-6666', '제주도 제주시 외나무골', '20151225', 'B', '60');
 INSERT INTO MEMBER_TBL_02 VALUES (seq_custno.nextval, '차공단', '010-1111-7777', '제주도 제주시 감나무골', '20151211', 'C', '60');
 
-SELECT * FROM MEMBER_TBL_02 ;
+SELECT * FROM MEMBER_TBL_02
+ORDER BY custno;
 
 INSERT INTO MONEY_TBL_02 VALUES (100001,20160001,500,5,2500,'A001','20160101');
 INSERT INTO MONEY_TBL_02 VALUES (100001,20160002,1000,4,2500,'A002','20160101');
