@@ -60,3 +60,72 @@ SELECT custno,salenol ,pcost*amount "구입금액" FROM MONEY_TBL_02;		-- 수식
 UPDATE MONEY_TBL_02 SET price = pcost*amount ;
 
 -- 4. 조회할 컬럼 확인 -> 1) 1개 테이블 2)조인 필요?  3)그룹함수 필요? 
+SELECT custno,custname,phone,address,joindate,grade,city
+FROM MEMBER_TBL_02;
+
+SELECT custno,custname,phone,address,to_char(joindate,'yyyy-mm-dd') "가입날짜",
+decode(grade,'A','VIP','B','일반','C','직원') "등급",city
+FROM MEMBER_TBL_02;
+
+
+SELECT grade,city ,sum(price)
+FROM member_tbl_02 mem
+JOIN MONEY_TBL_02  mon
+ON mem.custno = mon.custno
+GROUP BY grade,city;		-- 그룹화 컬럼을 2개로 할때 메인그룹,서브그룹
+
+
+-- 회원매출조회
+-- 방법1]] group by : 여러개 컬럼 나열해서 select (메인컬럼외 나머지 컬럼은 의미가 없음. )
+SELECT mem.custno "회원번호",
+	mem.custname "회원성명",
+	decode(grade,'A','VIP','B','일반','C','직원') "등급",
+	sum(price) sale
+FROM member_tbl_02 mem
+JOIN MONEY_TBL_02  mon
+ON mem.custno = mon.custno
+GROUP BY mem.custno,mem.custname,mem.grade
+ORDER BY sale DESC;
+
+-- 방법2]] join : 집계함수 결과와 회원테이블
+-- 1단계 : 회원별 매출합계 (money 테이블)
+SELECT custno , sum(price)
+FROM MONEY_TBL_02 
+GROUP BY custno;
+
+-- 2단계 : member 테이블과 1단계 결과 와 join
+SELECT *
+FROM MEMBER_TBL_02 mt
+JOIN
+(
+	SELECT custno , sum(price) psum
+	FROM MONEY_TBL_02 
+	GROUP BY custno
+) sale    -- 1단계 결과에 대한 별칭 sale
+ON mt.custno = sale.custno;
+
+
+-- 3단계 : 오라클에서는 별칭을 줄때 따옴표 ""안에쓰면 단순히 출력용입니다. 컬럼명,테이블명 지정을 위해서는 따옴포 없이
+SELECT mt.custno,custname,decode(grade,'A','VIP','B','일반','C','직원') "등급",psum
+FROM MEMBER_TBL_02 mt
+JOIN
+(	--서브 쿼리
+	SELECT custno , sum(price) psum     -- 별칭에 따옴표 없어야 컬럼명이 됩니다.
+	FROM MONEY_TBL_02 
+	GROUP BY custno
+) sale    -- 1단계 결과에 대한 별칭 sale
+ON mt.custno = sale.custno
+ORDER BY psum desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
