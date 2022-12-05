@@ -1,4 +1,5 @@
--- 집계(통계) 함수 : 합계(sum),평균(avg:average),개수(count),표준편차..
+-- 집계(통계) 함수 : 합계(sum),평균(avg:average),
+--       개수(count),최대값(max),최소값(min), 표준편차..
 
 -- 예제 tbl_sqscore 테이블
 SELECT * FROM TBL_SQSCORE ts ;

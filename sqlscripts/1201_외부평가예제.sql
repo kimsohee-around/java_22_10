@@ -117,11 +117,35 @@ JOIN
 ON mt.custno = sale.custno
 ORDER BY psum desc;
 
+-- member 테이블에 고객이 6명입니다. 구매한 고객은 4명입니다.
+-- 회원매출은 구매고객 4명 조회가 되는것을 구매하지 않은 고객도 조회가 되게 하려면
+-- 외부 조인
 
-
-
-
-
+SELECT mt.custno cno,custname,
+decode(grade,'A','VIP','B','일반','C','직원') "등급",
+nvl(psum,0)	ssum		-- NULL 값은 0으로 표시하기
+FROM MEMBER_TBL_02 mt
+LEFT OUTER JOIN
+(	--서브 쿼리
+	SELECT custno , sum(price) psum     -- 별칭에 따옴표 없어야 컬럼명이 됩니다.
+	FROM MONEY_TBL_02 
+	GROUP BY custno
+	--ORDER BY psum DESC
+) sale    -- 1단계 결과에 대한 별칭 sale
+ON mt.custno = sale.custno
+ORDER BY ssum DESC ,cno;
+-- 결론 : 동등조인 + 부모테이블 조인컬럼값을 모두 포함하고 싶을 때 사용합니다.
+-- 또는 *외래키 컬럼은 null값을 가질수 있고 그 때는  동등조인 + 자식테이블 컬럼값 모두 포함하는 
+--			외부조인도 가능합니다. 
+SELECT mem.custno ,
+	mem.custname "회원성명",
+	decode(grade,'A','VIP','B','일반','C','직원') "등급",
+	nvl(sum(price),0) sale
+FROM member_tbl_02 mem
+LEFT OUTER JOIN MONEY_TBL_02  mon
+ON mem.custno = mon.custno
+GROUP BY mem.custno,mem.custname,mem.grade
+ORDER BY sale DESC,mem.CUSTNO ;
 
 
 
