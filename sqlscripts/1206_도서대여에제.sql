@@ -69,25 +69,60 @@ values(bookrent_seq.nextval,10002,'C1101','2021-09-12','2021-09-26','2021-09-29'
 INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE,RETURN_DATE)
 values(bookrent_seq.nextval,10003,'B1101','2022-11-03','2022-11-17','2022-11-15');
 INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE)
-values(bookrent_seq.nextval,10004,'C1101','2022-12-01','2022-12-15');
+values(bookrent_seq.nextval,10004,'C1101','2022-12-01','2022-12-15');  -- 도서 대여중
 INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE)
-values(bookrent_seq.nextval,10001,'A1101','2022-11-20','2022-12-04');
+values(bookrent_seq.nextval,10001,'A1101','2022-11-20','2022-12-04'); 
+--  도서 대여중(연체 2일,sysdate 는 12월6일)
 INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE,RETURN_DATE)
 values(bookrent_seq.nextval,10003,'A1102','2022-11-22','2022-12-06','2022-12-04');
 
 
 -- 참고하기 : '대여' 기본적인 동작은 대여날짜는 오늘,반납기한은 오늘+14 를 기본값으로 할수 있도록 합니다.
---ALTER TABLE "C##IDEV".TBL_BOOKRENT MODIFY RENT_DATE DATE DEFAULT sysdate;
---ALTER TABLE "C##IDEV".TBL_BOOKRENT MODIFY EXP_DATE DATE DEFAULT sysdate+14;
---INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE)
---values(bookrent_seq.nextval,10002,'A1102');
+--		ALTER TABLE TBL_BOOKRENT MODIFY RENT_DATE DATE DEFAULT sysdate;
+--		ALTER TABLE TBL_BOOKRENT MODIFY EXP_DATE DATE DEFAULT sysdate+14;
+--		INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE)
+--				values(bookrent_seq.nextval,10002,'A1102');
 
--- 컬럼 디폴트 값 없애고 싶을때
---ALTER TABLE "C##IDEV".TBL_BOOKRENT MODIFY RENT_DATE DATE DEFAULT NULL;
-
-
+-- 		컬럼 디폴트 값 없애고 싶을때
+--   	ALTER TABLE TBL_BOOKRENT MODIFY RENT_DATE DATE DEFAULT NULL;
 
 
+SELECT * FROM BOOK_MEMBER bm ;
+SELECT * FROM TBL_BOOK tb ;
+SELECT * FROM TBL_BOOKRENT tb ;
+
+-- 1) 현재 sysdate 기준으로 연체 중인 도서 대여 정보 조회
+SELECT * FROM TBL_BOOKRENT tb 
+WHERE EXP_DATE < SYSDATE AND RETURN_DATE IS NULL ;    -- 도서 대여중 AND 연체
+
+-- 2) 1)에서 대여 중인 도서의 도서코드,회원번호, 연체 일수 계산하여 조회하기
+SELECT BCODE ,MEM_IDX ,TRUNC(sysdate) - EXP_DATE "연체일수"		-- 계산값이 0보다 크면 연체 중. 
+FROM TBL_BOOKRENT tb 
+WHERE RETURN_DATE IS NULL;      -- 도서 대여중 조건식
+
+--3) 연체 중인 도서코드,도서명,대여날짜 조회하기
+SELECT tb.BCODE ,title , rent_date
+FROM TBL_BOOK tb 
+JOIN TBL_BOOKRENT tb2 
+ON tb.BCODE = tb2.BCODE AND EXP_DATE < SYSDATE AND RETURN_DATE IS NULL;
+
+--4) 연체 중인 회원번호,회원이름,전화번호 조회하기
+SELECT bm.MEM_IDX ,name, tel
+FROM BOOK_MEMBER bm  
+JOIN TBL_BOOKRENT tb 
+ON bm.MEM_IDX = tb.MEM_IDX  AND EXP_DATE < SYSDATE AND RETURN_DATE IS NULL;
+
+--5) 각 도서별 대여회수를 조회하기. 많은 순서부터 정렬.
+SELECT bcode,count(*) bcnt
+FROM TBL_BOOKRENT tb 
+GROUP BY BCODE 
+ORDER BY bcnt desc;
+
+--6) 각 회원별 대여회수를 조회하기. 많은 순서부터 정렬.
+SELECT MEM_IDX ,count(*) mcnt
+FROM TBL_BOOKRENT tb 
+GROUP BY MEM_IDX  
+ORDER BY mcnt desc;
 
 
 
