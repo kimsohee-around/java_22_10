@@ -30,7 +30,7 @@ CREATE TABLE tbl_bookrent(			-- '대여' 관계 저장
 -- 2. 필요시 기존 시퀀스 삭제 및 데이블 데이터 삭제
 DROP SEQUENCE memidx_seq;
 DROP SEQUENCE bookrent_seq;
-TRUNCATE  TABLE TBL_BOOKRENT  ;
+TRUNCATE  TABLE TBL_BOOKRENT  ;		-- 외래키 설정되었으므로 이 테이블 데이터부터 삭제
 TRUNCATE  TABLE BOOK_MEMBER ;
 TRUNCATE  TABLE TBL_BOOK  ;
 
@@ -124,6 +124,25 @@ FROM TBL_BOOKRENT tb
 GROUP BY MEM_IDX  
 ORDER BY mcnt desc;
 
+-- 7) 반납을 현재 sysdate 날짜로 update, 연체일수 컬럼도 update
+UPDATE TBL_BOOKRENT 
+SET RETURN_DATE = sysdate , DELAY_DAYS = TRUNC(sysdate) - EXP_DATE
+WHERE RENT_NO = 5;
+SELECT * FROM TBL_BOOKRENT tb ;
 
+-- 8) 대여가능한 책 목록  :합집합(UNION,UNION ALL),교집합(INTERSECT),*차집합*
+SELECT bcode FROM TBL_BOOK tb 			-- 전체 도서
+MINUS 
+SELECT bcode FROM TBL_BOOKRENT tb WHERE RETURN_DATE IS NULL ; 	-- 대여중인 도서
 
+-- 참고 : create /alter/ drop 의 대상인 오라클 객체는 user,table,sequence,view,프로시저,트리거......
+-- 9) 뷰(view) 생성 : view 는 가상 테이블.(물리적으로 디스크에 따로 저장되지 않고 논리적으로 만들어지는 테이블)
+--				join, 그룹함수 등 복잡한 쿼리에 대해 테이블처럼 다룰 수 있게 함.
+
+CREATE OR REPLACE VIEW v_rent    -- repalce 는 DROP 하고 다시 생성
+AS
+SELECT tb.BCODE ,title , rent_date
+FROM TBL_BOOK tb 
+JOIN TBL_BOOKRENT tb2 
+ON tb.BCODE = tb2.BCODE AND EXP_DATE < SYSDATE AND RETURN_DATE IS NULL;							
 
