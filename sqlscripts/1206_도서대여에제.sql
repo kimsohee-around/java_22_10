@@ -130,19 +130,37 @@ SET RETURN_DATE = sysdate , DELAY_DAYS = TRUNC(sysdate) - EXP_DATE
 WHERE RENT_NO = 5;
 SELECT * FROM TBL_BOOKRENT tb ;
 
--- 8) 대여가능한 책 목록  :합집합(UNION,UNION ALL),교집합(INTERSECT),*차집합*
+-- 8) 연체일수 컬럼이 null 인 경우 계산해서 update
+UPDATE TBL_BOOKRENT 
+SET DELAY_DAYS = RETURN_DATE  - EXP_DATE
+WHERE DELAY_DAYS IS NULL;
+
+-- 평균 연체일수 : 
+SELECT avg(delay_days) FROM TBL_BOOKRENT tb 
+WHERE DELAY_DAYS > 0;
+
+-- 9) 대여가능한 책 목록  :합집합(UNION,UNION ALL),교집합(INTERSECT),*차집합*
 SELECT bcode FROM TBL_BOOK tb 			-- 전체 도서
 MINUS 
 SELECT bcode FROM TBL_BOOKRENT tb WHERE RETURN_DATE IS NULL ; 	-- 대여중인 도서
 
 -- 참고 : create /alter/ drop 의 대상인 오라클 객체는 user,table,sequence,view,프로시저,트리거......
--- 9) 뷰(view) 생성 : view 는 가상 테이블.(물리적으로 디스크에 따로 저장되지 않고 논리적으로 만들어지는 테이블)
+-- 10) 뷰(view) 생성 : view 는 가상 테이블.(물리적으로 디스크에 따로 저장되지 않고 논리적으로 만들어지는 테이블)
 --				join, 그룹함수 등 복잡한 쿼리에 대해 테이블처럼 다룰 수 있게 함.
-
+-- 			뷰를 만들려면 권한이 필요. grant create view to iclass10;
 CREATE OR REPLACE VIEW v_rent    -- repalce 는 DROP 하고 다시 생성
 AS
-SELECT tb.BCODE ,title , rent_date
-FROM TBL_BOOK tb 
-JOIN TBL_BOOKRENT tb2 
-ON tb.BCODE = tb2.BCODE AND EXP_DATE < SYSDATE AND RETURN_DATE IS NULL;							
+	SELECT tb.BCODE ,title , writer,rent_date,exp_date,return_date			
+					-- SELECT 조회 결과로 v_rent 가상테이블을 사용함.뷰에서는 동일한 컬럼명있을때 * 사용못함
+	FROM TBL_BOOK tb 
+	JOIN TBL_BOOKRENT tb2 
+	ON tb.BCODE = tb2.BCODE;	
+-- 뷰를 대상으로 select 쿼리 동일하게 사용 가능합니다.
+-- 여러개의 테이블로 만들어진 뷰는 insert,update,delete 제한이 많고 일반적으로 뷰에서는 사용하지 않는게 바람직.
+SELECT * FROM v_rent;
+SELECT * FROM v_rent WHERE return_date IS null;
+SELECT BCODE ,title , rent_date 
+FROM v_rent WHERE bcode='B1101';
+
+
 
