@@ -28,7 +28,7 @@ public class MemberDao {
 				+ "VALUES (seq_custno.nextval, ?, ?, ?, sysdate, ?, ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
-		pstmt.setString(1, member.getCustname());
+		pstmt.setString(1, member.getCustname());		//1 : 인덱스값 . ? 기호 순서
 		pstmt.setString(2, member.getPhone());
 		pstmt.setString(3, member.getAddress());
 		pstmt.setString(4, member.getGrade());
@@ -39,15 +39,12 @@ public class MemberDao {
 		
 	}
 	
-	
-	
-	
 	public List<Member> selectList() throws SQLException {		//Member 객체를 저장한 리스트를 리턴
 		
 		Connection conn = OracleUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql ="select * from  member_tbl_02";
+		String sql ="select * from  member_tbl_02 order by custno";
 		
 		pstmt = conn.prepareStatement(sql);     //Exception 처리는 jvm에게 throw(위임.떠넘기기).
 		rs = pstmt.executeQuery();

@@ -37,8 +37,21 @@ public class MemberApp {
 								m.getCity() );
 				
 				break;
-			case "p":
-
+			case "p":		//조회할 pk 컬럼값 입력받고 메소드 실행하기
+				System.out.print("검색할 회원번호 입력 >>> ");
+				int custno = Integer.parseInt(sc.nextLine());
+				Member m = dao.selectOne(custno);
+				System.out.println("조회 결과 ");
+				System.out.println(":::::::::::::::::::::::::::::::::::::");
+				if(m!=null)		
+					System.out.println(m.getCustno() + "\t" +
+							m.getCustname() + "\t" +
+							m.getAddress() + "\t" +
+							m.getPhone() + "\t" +
+							m.getJoindate() + "\t" +
+							m.getGrade() + "\t" +
+							m.getCity() );
+				else System.out.println("조회 결과가 없습니다.");
 				break;
 			case "e":
 				run = false;
