@@ -30,8 +30,7 @@ public class MemberDao {
 					rs.getString(4),
 					rs.getDate(5),
 					rs.getString(6),
-					rs.getString(7)
-					);
+					rs.getString(7)	);
 			memberList.add(m);
 		}
 		
