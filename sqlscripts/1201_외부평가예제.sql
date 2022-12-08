@@ -117,6 +117,10 @@ JOIN
 ON mt.custno = sale.custno
 ORDER BY psum desc;
 
+
+
+
+
 -- member 테이블에 고객이 6명입니다. 구매한 고객은 4명입니다.
 -- 회원매출은 구매고객 4명 조회가 되는것을 구매하지 않은 고객도 조회가 되게 하려면
 -- 외부 조인

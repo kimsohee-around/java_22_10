@@ -4,9 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import jdbc.util.OracleUtil;
-
+//하드코딩 : driver, user,password, 중요한 정보 들을 소스에서 직접 설정.(값을 변경하려면 소스코드를 변경) -> 프로퍼티 파일 사용으로 변경할 예정
 public class SelectTest4Where {    //조건식 추가
 
 	public static void main(String[] args) {
@@ -20,10 +21,16 @@ public class SelectTest4Where {    //조건식 추가
 		try {
 			pstmt = conn.prepareStatement(sql);			//sql 명령을 인자로 받아 실행할 객체를 생성하여 pstmt가 참조변수
 			//sql 인자를 전달하는 방법
-			pstmt.setInt(1, 100009);		//1번째 ? 기호 인자에 전달될 값은 100001
+//			pstmt.setInt(1, 100009);		//1번째 ? 기호 인자에 전달될 값은 100001  
+			System.out.print("검색할 회원 번호 입력 >>> ");
+			Scanner sc = new Scanner(System.in);
+			int custno = Integer.parseInt(sc.nextLine());
+			pstmt.setInt(1, custno);
+			
 			rs = pstmt.executeQuery();					//쿼리 실행하고 그 결과를 객체로 생성하여 rs 가 참조변수
 			
-			
+			System.out.println(custno + " :조회 결과");
+			System.out.println("::::::::::::::::::::::::::::::::::::::");
 			int cnt=0;
 			if(rs.next()) {   //조건식의 컬럼 custno는 Pk -> 조회 결과가 0 또는 1개
 				System.out.println(rs.getInt(1) + "\t" 

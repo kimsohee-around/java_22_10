@@ -34,7 +34,8 @@ public class SelectTest2 {
 //				System.out.println("여섯번째 컬럼의 값 : " + rs.getNString(6));
 //				System.out.println("일곱번째 컬럼의 값 : " + rs.getNString(7));
 				
-			System.out.println(rs.getInt(1) + "\t" +rs.getNString(2) + "\t"
+			System.out.println(rs.getInt(1) + "\t" 
+					+rs.getNString(2) + "\t"
 					+rs.getNString(3) + "\t"
 					+rs.getNString(4) + "\t"
 					+rs.getDate(5) + "\t"
