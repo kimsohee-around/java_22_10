@@ -10,6 +10,8 @@ public class MemberDeleteTest {
 		//트랜잭션관리를 위해서는 try ~ catch 를 이용하여 try 안에는 commit, catch 안에는 rollback 
 		//   -> Dao 메소드에서 합니다.(메소드는 하나의 트랜잭션이 실행되도록 작성)
 		
+//		MemberDao dao2 = new MemberDao();			// 생성자가 private이므로 오류
+		
 		MemberDao dao = MemberDao.getMemberDao();
 		dao.delete(100122);
 		
