@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/iclass1020/extlib/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="D:/iclass1020/extlib/lombok.jar"/>
+	<classpathentry kind="lib" path="D:/iclass1020/extlib/guava-31.1-jre.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
