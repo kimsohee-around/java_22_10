@@ -21,6 +21,36 @@ public class MemberDao {
 		return dao;
 	}
 	
+	public void delete(int custno) throws SQLException {
+		String sql = "delete from member_tbl_02 where custno = ?";
+		Connection conn = OracleUtil.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, custno);
+		pstmt.execute();
+		pstmt.close();
+		conn.close();
+	}
+	
+	
+	public void update(Member member) throws SQLException {
+		String sql ="update member_tbl_02  \r\n"
+				+ "set phone = ?, address = ? , city=? \r\n"
+				+ "where custno = ?";
+		Connection conn = OracleUtil.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, member.getPhone());
+		pstmt.setString(2, member.getAddress());
+		pstmt.setString(3, member.getCity());
+		pstmt.setInt(4, member.getCustno());
+		
+		pstmt.execute();
+		pstmt.close();		//pstmt에 지정된 sql 실행 종료.(close:자원해제)
+//		conn.commit(); 		//autocommit이 false(OFF) 일때는 필요합니다.
+//		conn.rollback();    //하나의 트랜잭션을 구성하는 여러 SQL 중 일부 오류일때. 이미실행된 SQL은 취소합니다.
+		conn.close();
+	}
+	
+	
 	public void insert(Member member) throws SQLException {
 		//Member 객체를 인자로 받아서 insert 할 값으로 SQL에 전달.
 		Connection conn = OracleUtil.getConnection();
@@ -35,6 +65,7 @@ public class MemberDao {
 		pstmt.setString(5, member.getCity());
 		
 		pstmt.execute();
+		pstmt.close();
 		conn.close();
 		
 	}
@@ -61,6 +92,8 @@ public class MemberDao {
 			memberList.add(m);
 		}
 		
+		rs.close();
+		pstmt.close();
 		conn.close();
 		return memberList;
 	}
@@ -88,6 +121,9 @@ public class MemberDao {
 					rs.getString(7)
 					);
 		
+		rs.close();
+		pstmt.close();
+		conn.close();
 		
 		return member;
 	}

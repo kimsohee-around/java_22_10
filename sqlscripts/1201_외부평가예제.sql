@@ -141,6 +141,7 @@ ORDER BY ssum DESC ,cno;
 -- 결론 : 동등조인 + 부모테이블 조인컬럼값을 모두 포함하고 싶을 때 사용합니다.
 -- 또는 *외래키 컬럼은 null값을 가질수 있고 그 때는  동등조인 + 자식테이블 컬럼값 모두 포함하는 
 --			외부조인도 가능합니다. 
+
 SELECT mem.custno ,
 	mem.custname "회원성명",
 	decode(grade,'A','VIP','B','일반','C','직원') "등급",
@@ -151,7 +152,23 @@ ON mem.custno = mon.custno
 GROUP BY mem.custno,mem.custname,mem.grade
 ORDER BY sale DESC,mem.CUSTNO ;
 
+--회원정보　수정
+select * from member_tbl_02 where custno= 100122;
+update member_tbl_02
+set phone = '000-0000-0000', address = '강원도 속초시' , city='99'
+where custno = 100122;
 
+
+show autocommit;
+-- 확인결과 autocommit OFF
+-- insert,update, delete : 테이블 데이터를 변경하는 SQL -> *트랜잭션
+--    ㄴ 실제 데이터파일에 반영이 되려면 commit 해야 합니다. 
+--    (autocommit 설정여부에 따라 commit 명령 실행 필요 - autocommit이 OFF 일때 )
+
+commit;    -- 콘솔에 커밋 완료.
+
+-- autocommit 설정 : 클라이언트 프로그램의 설정
+set autocommit on;
 
 
 
