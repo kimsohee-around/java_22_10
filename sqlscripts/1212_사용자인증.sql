@@ -12,5 +12,8 @@ where trim(email) =trim('honey@naver.com') and password='1122';   -- select 결�
 select * from book_member
 where trim(email) =trim('honey@naver.com') and password='1123';   -- 없으면 로그인 실패
 
-
--- password 컬럼을 변경
+-- password 컬럼을 추가
+alter table book_member add password64 char(64);
+update book_member set password64='b3282a2f2a28757b3a18ab833de16a9c54518c0b0cf493e3f0a7cf09386f326a' 
+where mem_idx=10001;        -- 1122 해시값으로 수정
+select * from book_member;
