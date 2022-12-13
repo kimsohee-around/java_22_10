@@ -19,6 +19,18 @@ public class BookRentDto {
 	private Date exp_date;
 	private Date return_date;
 	private int delay_days;
+	@Override
+	public String toString() {
+		return rent_no + "\t" 
+				+ mem_idx + "\t" 
+				+ bcode + "\t"
+				+ rent_date + "\t"  
+				+ exp_date + "\t" 
+				+ return_date + "\t" 
+				+ delay_days;
+	}
+	
+	
 }
 /*
 BookRentDto 클래스 - 대여정보 저장
