@@ -13,11 +13,10 @@ selectRentBook:대여 중인 도서대여정보 조회
 
 	public List<BookRentDto> selectRentBook() {
 		List<BookRentDto> list = null;
+		String sql = "";
 		return list;
 	}
 	
-
-
 selectDelay:연체 도서 조회
 selectRentByMember:회원의 도서대여 정보. 
 (요구사항: 1명이 1권만 대여가능. 반납해야 다른 책 대여.)
@@ -28,7 +27,7 @@ isRent : 인자는 회원번호, 도서코드
  리턴은 boolean (-> 회원번호와 도서코드가 모두 대여 가능할때 참 리턴)
 	public boolean isRent(int mem_idx,String bcode) {
 		boolean result = false;
-		
+		String sql = "";
 		return result;
 	}
 
