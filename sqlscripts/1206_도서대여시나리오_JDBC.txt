@@ -12,7 +12,7 @@ BookRentDao 클래스 - 싱클턴
 selectRentBook:대여 중인 도서대여정보 조회    *select SQL : ResultSet rs = null;  선언과 rs = pstmt.executeQuery(); 메소드
 
 	public List<BookRentDto> selectRentBook() {
-		List<BookRentDto> list = null;
+		List<BookRentDto> list = new ArrayList<>();
 //아래 5줄은 반복되는 코드로 모든 메소드에 미리 복붙하세요.
 		String sql = "";
 		Connection conn = OracleUtil.getConnection();
@@ -20,6 +20,7 @@ selectRentBook:대여 중인 도서대여정보 조회    *select SQL : ResultSe
 		
 		pstmt.close();
 		conn.close();
+//여기까지 공통.
 		return list;
 	}
 
@@ -31,7 +32,7 @@ selectDelay:연체 도서 조회 . 연체중인 도서의 정보- 연체 중인 
 
 
 selectRentByMember:회원의 도서대여 정보. 
-(요구사항: 1명이 1권만 대여가능. 반납해야 다른 책 대여.)
+(요구사항: 1명이 1권만 대여가능. 반납해야 다른 책 대여.-> 리턴 타입 ??)
          인자는 회원번호 , 리턴은 대여정보 
 **  RentByMemberTest 클래스 : selectRentByMember 메소드만 테스트.
 
