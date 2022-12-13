@@ -22,14 +22,18 @@ selectRentBook:대여 중인 도서대여정보 조회    *select SQL : ResultSe
 		conn.close();
 		return list;
 	}
-단위테스트 __ Dao 메소드를 실행할 클래스는 메소드(기능) 중심 테스트 클래스로 만드세요. 
-   BookRentTest 클래스 : selectRentBook 메소드만 테스트.	
+
+**단위테스트 __ Dao 메소드를 실행할 클래스는 메소드(기능) 중심 테스트 클래스로 만드세요. 
+  BookRentTest 클래스 : selectRentBook 메소드만 테스트.	
 
 selectDelay:연체 도서 조회 . 연체중인 도서의 정보- 연체 중인 도서코드,도서명,대여날짜 조회하기
+**  RentDelayTest 클래스 : selectDelay 메소드만 테스트.
+
+
 selectRentByMember:회원의 도서대여 정보. 
 (요구사항: 1명이 1권만 대여가능. 반납해야 다른 책 대여.)
          인자는 회원번호 , 리턴은 대여정보 
-
+**  RentByMemberTest 클래스 : selectRentByMember 메소드만 테스트.
 
 isAvailableBook(String bcode) 메소드는 대여가능한 도서일 때 참,
 isAvailableMember(int mem_idx) 메소드는 대여가능한 회원일 때 참,
@@ -40,7 +44,12 @@ isRent 메소드: 인자는 회원번호, 도서코드
 		String sql = "";
 		return result;
 	}
+**  RentAvailableTest 클래스 : isRent 메소드만 테스트.
+
 
 rentBook 메소드 :대여 (insert). 리턴 void , 인자는 ??  대여날짜는 오늘날짜, exp_date는 오늘날짜+14
+**  RentTest  : rentBook 메소드
+
 returnBook:반납 (update). 리턴 void , 인자는 ??
+**  ReturnTest  : returnBook 메소드
 
