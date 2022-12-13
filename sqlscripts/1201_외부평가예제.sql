@@ -169,8 +169,12 @@ commit;    -- 콘솔에 커밋 완료.
 
 -- autocommit 설정 : 클라이언트 프로그램의 설정
 set autocommit on;
-
-
+set autocommit off;
+show autocommit;
+delete from member_tbl_02 where custno =100122;
+select * from member_tbl_02 
+where custno =100122;
+rollback;
 
 
 
