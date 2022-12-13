@@ -9,15 +9,20 @@ BookRentDto 클래스 - 대여정보 저장
 BookRentDao 클래스 - 싱클턴 
    public static BookRentDao getInstance() 메소드
 
-selectRentBook:대여 중인 도서대여정보 조회
+selectRentBook:대여 중인 도서대여정보 조회    *select SQL : ResultSet rs = null;  선언과 rs = pstmt.executeQuery(); 메소드
 
 	public List<BookRentDto> selectRentBook() {
 		List<BookRentDto> list = null;
 		String sql = "";
+		Connection conn = OracleUtil.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.close();
+		conn.close();
 		return list;
 	}
 	
-selectDelay:연체 도서 조회
+selectDelay:연체 도서 조회 . 연체중인 도서의 정보- 연체 중인 도서코드,도서명,대여날짜 조회하기
 selectRentByMember:회원의 도서대여 정보. 
 (요구사항: 1명이 1권만 대여가능. 반납해야 다른 책 대여.)
          인자는 회원번호 , 리턴은 대여정보 
@@ -33,3 +38,6 @@ isRent : 인자는 회원번호, 도서코드
 
 rentBook 메소드 :대여 (insert). 리턴 void , 인자는 ??
 returnBook:반납 (update). 리턴 void , 인자는 ??
+
+** Dao 메소드를 실행할 클래스는 기능을 단위로 만드세요. 
+   BookRentTest 클래스 : selectRentBook
