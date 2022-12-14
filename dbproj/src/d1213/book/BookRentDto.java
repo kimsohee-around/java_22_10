@@ -19,6 +19,7 @@ public class BookRentDto {
 	private Date exp_date;
 	private Date return_date;
 	private int delay_days;
+	
 	@Override
 	public String toString() {
 		return rent_no + "\t" 

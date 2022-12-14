@@ -18,7 +18,7 @@ public class BookRentDao {
 
 	public List<BookRentDto> selectRentBook() throws SQLException {
 		List<BookRentDto> list = new ArrayList<>();
-		String sql = "SELECT tb.* , TRUNC(sysdate) - EXP_DATE delays \r\n"
+		String sql = "SELECT tb.* , TRUNC(sysdate) - EXP_DATE  \r\n"
 				+ "FROM TBL_BOOKRENT tb \r\n"
 				+ "WHERE RETURN_DATE IS NULL";
 		Connection conn = OracleUtil.getConnection();
@@ -78,7 +78,7 @@ public class BookRentDao {
 					rs.getInt(7));
 		pstmt.close();
 		conn.close();
-		return dto;
+		return dto;			//mem_idx 가 대여중이 아니면 dto 는 null
 	}
 	
 	public boolean isRent(int mem_idx,String bcode) throws SQLException {
@@ -88,28 +88,32 @@ public class BookRentDao {
 	}
 	
 //	public void rentBook(BookRentDto bookRentDto) throws SQLException {
-	public void rentBook(int mem_idx,String bcode) throws SQLException {
+	public int rentBook(int mem_idx,String bcode) throws SQLException {
 		String sql = "INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE) \r\n"
 				+ "values(bookrent_seq.nextval,?,?,sysdate,sysdate+14)";
 		Connection conn = OracleUtil.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, mem_idx);
 		pstmt.setString(2, bcode);
-		pstmt.execute();
+//		pstmt.execute();    //리턴타입이 boolean : ResultSet 결과가 있는지 여부
+		int result =pstmt.executeUpdate();		//리턴타입이 int : (I,U,D 반영된 행의 개수)
 		pstmt.close();
 		conn.close();
+		return result;
 	}
 	
-	public void returnBook(int rentno) throws SQLException {
+	public int returnBook(int rentno) throws SQLException {
 		String sql = "UPDATE TBL_BOOKRENT \r\n"
 				+ "SET RETURN_DATE = sysdate , DELAY_DAYS = TRUNC(sysdate) - EXP_DATE\r\n"
 				+ "WHERE RENT_NO = ?";
 		Connection conn = OracleUtil.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, rentno);
-		pstmt.execute();
+//		pstmt.execute();
+		int result = pstmt.executeUpdate();
 		pstmt.close();
 		conn.close();
+		return result;
 	}
 	
 	

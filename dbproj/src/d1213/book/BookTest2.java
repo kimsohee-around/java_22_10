@@ -9,8 +9,8 @@ public class BookTest2 {
 		BookRentDao dao = BookRentDao.getInstance();
 		System.out.println("::: 대여 :::");
 //		Scanner sc = new Scanner(System.in);
-		int mem_idx = 10002;
-		String bcode ="C1101";
+		int mem_idx = 10001;
+		String bcode ="A1102";
 		try {
 			if(!dao.isAvailableMember(mem_idx))
 				System.out.println("회원님은 대여 중인 도서가 있어 추가 대여 불가!!");
