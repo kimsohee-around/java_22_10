@@ -86,21 +86,34 @@ public class BookRentDao {
 		if(isAvailableBook(bcode) && isAvailableMember(mem_idx)) result=true;
 		return result;
 	}
-	
-//	public void rentBook(BookRentDto bookRentDto) throws SQLException {
-	public int rentBook(int mem_idx,String bcode) throws SQLException {
+	//Builder 패턴 테스트를 위한 메소드 오버로딩
+	public int rentBook(BookRentDto bookRentDto) throws SQLException {
 		String sql = "INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE) \r\n"
 				+ "values(bookrent_seq.nextval,?,?,sysdate,sysdate+14)";
 		Connection conn = OracleUtil.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, mem_idx);
-		pstmt.setString(2, bcode);
+		pstmt.setInt(1, bookRentDto.getMem_idx());  
+		pstmt.setString(2, bookRentDto.getBcode());
 //		pstmt.execute();    //리턴타입이 boolean : ResultSet 결과가 있는지 여부
 		int result =pstmt.executeUpdate();		//리턴타입이 int : (I,U,D 반영된 행의 개수)
 		pstmt.close();
 		conn.close();
 		return result;
 	}
+	
+	public int rentBook(int mem_idx,String bcode) throws SQLException {
+			String sql = "INSERT INTO TBL_BOOKRENT (rent_no,MEM_IDX,BCODE,RENT_DATE,EXP_DATE) \r\n"
+					+ "values(bookrent_seq.nextval,?,?,sysdate,sysdate+14)";
+			Connection conn = OracleUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_idx);  pstmt.setString(2, bcode);
+//			pstmt.execute();    //리턴타입이 boolean : ResultSet 결과가 있는지 여부
+			int result =pstmt.executeUpdate();		//리턴타입이 int : (I,U,D 반영된 행의 개수)
+			pstmt.close();
+			conn.close();
+			return result;
+	}
+	
 	
 	public int returnBook(int rentno) throws SQLException {
 		String sql = "UPDATE TBL_BOOKRENT \r\n"
