@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>6.Image Map</title>
+</head>
+<body>
+<p>참고 : <a href="https://www.w3schools.com/html/html_images_imagemap.asp">
+		w3schools 예제</a></p>
+<img src="../image/workplace.jpg" alt="이미지 맵 테스트" usemap="#workmap">
+<!-- usemap 속성은 이미지에 적용되는 맵의 이름 -->
+<map name="workmap">
+	<area alt="컴퓨터" href="https://www.w3schools.com/html/computer.htm"
+		shape="rect" coords="34,44,270,350">
+	<area alt="핸드폰" href="https://www.w3schools.com/html/phone.htm"
+		shape="rect" coords="290,172,333,250">
+	<area alt="커피" href="https://www.w3schools.com/html/coffee.htm"
+		shape="circle" coords="337,300,44">  
+		<!-- 좌표의 단위는 px(픽셀) -->
+</map>		
+</body>
+</html>

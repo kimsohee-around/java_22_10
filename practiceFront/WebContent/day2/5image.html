@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5. 이미지 태그 연습</title>
+</head>
+<body>
+<h3>이미지 태그 연습</h3>
+<p>이미지 img 태그의 주요 속성이 어떤 것이 있는지
+확인을 하면서 연습합시다. - alt, src, width 속성 사용.</p>
+<h5>참고</h5>
+<dl>  <!-- 리스트 종류 중 하나.  -->
+	<dt>블록 block 요소</dt>  <!-- dt: title , dd : description(설명) -->
+		<dd>-https://developer.mozilla.org/ko/docs/Web/HTML/Block-level_elements</dd>
+		<dd>-블록 레벨 요소는 부모 요소의 전체 공간을 차지하여 "블록"을 만듭니다.
+		<dd>-default 크기 : 너비는 부모요소의 100% ,높이는 컨텐츠 크기만큼.</dd>
+		<dd>-예시 h1~h5, p, hr, ul, li,div ...</dd>
+	<dt>인라인 inline 요소</dt>
+		<dd>-https://developer.mozilla.org/ko/docs/Web/HTML/Inline_elements</dd>
+		<dd>-인라인 요소는 콘텐츠의 흐름을 끊지 않고, 요소를 구성하는 태그에 할당된 공간만 차지합니다.</dd>
+		<dd>-일반적으로 인라인 요소는 블럭요소를 부모로 합니다.</dd> 
+		<dd>-예시 :img, strong,span ...</dd>
+	<dt>*참고</dt>
+		<dd>-블록요소안에 블럭요소, 블록요소 안에 인라인요소, 
+		인라인 요소 안에 인라인 요소 등의 중첩은 가능합니다.</dd>	
+		<dd>-body 태그도 기본 너비는 브라우저의 100%. 
+		블록의 절대크기는 px, 부모에 대한 상대 크기는 %로 지정합니다. </dd>
+</dl>
+<!--  -->
+<img alt="첫번째 이미지-스파이더맨1" 
+src="스파이더맨1.jpg" width="200px;">
+<img alt="첫번째 이미지-스파이더맨1-2" 
+src="스파이더맨1.jpg" width="200px;"> 
+<!-- height 높이를 지정하면 정확한 비율이 유지가 안되므로 width만 설정하고 height 는 자동으로 비율에 따라.  -->
+<img alt="두번째 이미지-스파이더맨2" 
+src="스파이더맨2.jpg" width="200px;">
+<img alt="세번째 이미지-스파이더맨3" 
+src="../image/스파이더맨3.png" width="200px;">  <!-- 현재 day2와 형제 폴더인 image 를 지정 -->
+<!-- 상대경로(path) 지정합니다. 기호는 ./ 현재폴더(디렉토리) 이고 ../ 한단계 상위폴더 
+	 상대경로는 url 지정할 때 파일위치에도 적용.
+-->
+<img alt="네이버 메인이미지" 
+src="https://s.pstatic.net/static/www/mobile/edit/20221216/mobile_212521212723.gif">
+
+<p>[참고]상대경로 활용 : <a href="../day1/0start.html">day1폴더 0start.html 링크</a> 
+
+ 
+</body>
+</html>

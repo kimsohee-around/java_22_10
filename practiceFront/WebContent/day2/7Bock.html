@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>7.블럭요소</title>
+
+</head>
+<body>
+	<dl>
+		<!-- 리스트 종류 중 하나.  -->
+		<dt>블록 block 요소</dt>
+		<!-- dt: title , dd : description(설명) -->
+		<dd>-https://developer.mozilla.org/ko/docs/Web/HTML/Block-level_elements</dd>
+		<dd>-블록 레벨 요소는 부모 요소의 전체 공간을 차지하여 "블록"을 만듭니다.</dd>
+		<dd>-default 크기 : 너비는 부모요소의 100% ,높이는 컨텐츠 크기만큼.비율 % 안되고 px 로 설정</dd>
+		<dd>-예시 h1~h5, p, hr, ul, li,div ...</dd>
+		<dt>인라인 inline 요소</dt>
+		<dd>-https://developer.mozilla.org/ko/docs/Web/HTML/Inline_elements</dd>
+		<dd>-인라인 요소는 콘텐츠의 흐름을 끊지 않고, 요소를 구성하는 태그에 할당된 공간만 차지합니다.</dd>
+		<dd>-일반적으로 인라인 요소는 블럭요소를 부모로 합니다.</dd>
+		<dd>-예시 :img, strong,span ...</dd>
+		<dt>*참고</dt>
+		<dd>-블록요소안에 블럭요소, 블록요소 안에 인라인요소, 인라인 요소 안에 인라인 요소 등의 중첩은 가능합니다.</dd>
+		<dd>-body 태그도 기본 너비는 브라우저의 100%. 블록의 절대크기는 px, 부모에 대한 상대 크기는 %로
+			지정합니다.</dd>
+	</dl>
+	<hr>
+	<p style="background-color: aqua; border: 1px solid blue">첫번째 문단 p
+		: p 태그는 기본 외부 여백이 있습니다.</p>
+	<p style="background-color: aqua; border: 1px solid blue; width: 50%;">
+		두번째 문단 p</p>
+	<div style="border: 2px solid pink; width: 70%;">
+		<!-- 단어로 기능을 알수 있습니다. div : 일반적인 블록요소 -->
+		<p style="background-color: aqua; border: 1px solid blue; width: 50%;">
+			세번째 문단 p</p>
+	</div>
+	<div style="border: 2px solid pink; height: 200px;">
+		<!--기본 높이는 컨텐츠 크기만큼.비율 % 안되고 px 로 설정  -->
+		네번째 블록 div
+		<div style="border: 2px dotted blue; width: 70%; height: 50%;">
+			<!-- 높이는 부모 div 요소의 50% -->
+		</div>
+	</div>
+	<!-- 인라인 요소 : 너비 컨텐츠 크기만큼 -->
+	<span style="border: 2px solid green; width: 50%"> span1 </span>
+	<span
+		style="border: 2px solid green; width: 50%; display: inline-block;">
+		span2 - display: inline-block 스타일을 적용하면 block 요소 성질을 갖습니다. </span>
+	<span style="border: 2px solid green; width: 50%; display: block;">
+		<img alt="블럭요소 안의 이미지" src="../image/스파이더맨3.png" width="10%">
+	</span>
+	<div style="background-color: aquamarine; width: 100px; height: 100px;">
+		<div style="background-color: aliceblue;">1</div><!-- 컨텐츠 `1` 이 있을때/없을때 비교 -->
+		<div style="border: 1px solid blue;">2</div>
+	</div>
+	<div style="background-color:yellow;width:200px;height: 200px;
+		 display: inline-block;padding:20px;margin:40px;">
+		 <span style="border: 1px solid gray">inline div1</span>
+	</div>
+	<div style="background-color:yellow;width:200px;height: 200px;
+		 display: inline-block;padding:20px;margin:40px;">
+		<span style="border: 1px solid gray;display: inline-block;width:100%;">inline div2</span>
+	</div>
+		<div style="background-color:yellow;width:200px;height: 200px;
+		 display: inline-block;padding:40px;margin:40px;">
+		<span style="border: 1px solid gray;display: inline-block;width:100%;">inline div2</span>
+	</div>
+	<!-- box model : https://www.w3schools.com/css/css_boxmodel.asp
+		 width,height,padding,margin 속성과 box 크기(블록크기)와의 관계
+	 -->
+	<div style="background-color: orange;width:200px;height: 200px;padding: 20px;
+		 border:5px solid red">  <!-- width+padding 2개 + boreder 2개 = 250px -->
+	</div> 
+	<div style="background-color: orange;width:200px;height: 200px;padding: 20px;
+		 border:5px solid red;box-sizing: border-box;display:inline-block;">
+	</div> <!-- box-sizing: border-box 이므로 padding, border 포함해서 width가 200px -->
+	<div style="background-color: green;width:50px;height: 200px;
+		 border:5px solid red;box-sizing: border-box;display:inline-block;">
+	</div>
+</body>
+</html>
