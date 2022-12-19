@@ -72,10 +72,14 @@
 		 border:5px solid red">  <!-- width+padding 2개 + boreder 2개 = 250px -->
 	</div> 
 	<div style="background-color: orange;width:200px;height: 200px;padding: 20px;
-		 border:5px solid red;box-sizing: border-box;display:inline-block;">
+		 border:5px solid red;box-sizing: border-box;float: left;">
+<!--  display:inline-block; 은 블록요소 사이에 여백이 생깁니다.
+	 해결1) body 태그의 글씨크기를 0으로 하기 
+	 해결2) float:left; 속성으로 바꾸기
+ -->
 	</div> <!-- box-sizing: border-box 이므로 padding, border 포함해서 width가 200px -->
 	<div style="background-color: green;width:50px;height: 200px;
-		 border:5px solid red;box-sizing: border-box;display:inline-block;">
+		 border:5px solid red;box-sizing: border-box;float: left;">
 	</div>
 </body>
 </html>
