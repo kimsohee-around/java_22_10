@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>11.Form - 입력 양식</title>
+</head>
+<body>
+<!-- Form 양식 만들기
+	1. input 태그로 입력 요소를 만들기 
+		ㄴ type 속성으로 입력 요소의 종류(text,password,number,..)를 선택하기
+	2. lable 태그는 입력 요소가 focus 를 갖게 하도록 연결하는 텍스트
+		ㄴ for 속성을 입력 요소의 id 속성값과 같도록 합니다.	
+	3. radio 버튼은 여러개 중 단일 선택. name 속성값이 같게하여 그룹화.
+	
+ -->
+<table>
+	<tr>
+		<td>
+			<label for="lblName">이름</label>
+		</td>
+		<td>
+		<input type="text" id="lblName">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="lblPass">패스워드</label>
+		</td>
+		<td>
+		<input type="password" id="lblPass">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="lblEmail">이메일</label>
+		</td>
+		<td>
+		<input type="text" id="lblEmail">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="lblAge">나이</label>
+		</td>
+		<td>
+		<input type="number" id="lblAge">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>지역(주소)</label>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>
+			<label>성별</label>
+		</td>
+		<td>
+		<!-- radio 버튼은 여러개 중 단일 선택. name 속성값이 같게하여
+			 그룹화.
+		 -->
+			<input type="radio" name="gender" id="lblMale">
+			<label for="lblMale">남성</label>
+			<input type="radio" name="gender" id="lblFemale">
+			<label for="lblFemale">여성</label>
+			<input type="radio" name="gender" id="lblNo">
+			<label for="lblNo">모름</label>
+		
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>취미</label>
+		</td>
+		<td>  
+			<!-- 체크박스는 다중 선택. toggle 동작 -->
+			<input type="checkbox" id="lblFootball">
+			<label for="lblFootball">축구</label>
+			<input type="checkbox" id="lblBaseball">
+			<label for="lblBaseball">야구</label>
+			<input type="checkbox" id="lblRun">
+			<label for="lblRun">달리기</label>
+			<input type="checkbox" id="lblSwim">
+			<label for="lblSwim">수영</label>
+		</td>
+	</tr>
+
+
+</table>
+	
+</body>
+</html>
