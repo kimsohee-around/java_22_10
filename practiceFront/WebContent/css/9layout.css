@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body {
+	margin:0;
+}
 div.header {
 	background-color: orange;
 	color : white;
@@ -9,18 +12,40 @@ h2,h3,h4 {
 }
 ul {
 	list-style: none;
+	overflow: hidden;
 	background-color: brown;
+	margin: 0px;
 }
-li {
+/* 선택자 기호 : > 는 자식 요소 */
+ul > li {
 	float:left;
+}
+
+a{
+	background-color: brown;
+	display: block;
+	padding :20px;
+	
+}
+/* 가상 선택자 : hover는 마우스 올릴때 동작하는 css */
+a:hover {
+	color: white;
+	cursor: pointer;
 }
 .nav{
 	
 }
-
 .main{
-	
+	background-color: azure;
+	height: 500px;
+	padding: 20px;
 }
 .footer{
-	
+	background-color: cornflowerblue;
+	color:white;
+	padding: 20px;
+		
 }
+
+
+
