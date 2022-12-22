@@ -1,0 +1,28 @@
+@charset "UTF-8";
+main{
+/* 	width:888px;   너비가 절대값 */
+ 	width:70%;    /* 반응형 유사하게 적용 */
+	margin: auto;
+	overflow: hidden;
+}
+.gallery img {
+	width: 200px;
+	height: 200px;
+	object-fit:cover;
+}
+
+.desc {
+	width : 200px;
+	height: 50px;
+	padding: 10px;
+	text-align: center;
+	font-size:80%;
+	box-sizing: border-box;
+}
+
+.gallery {
+	float: left;   /* 부모 태그에 overflow:hidden */
+	border : 1px solid gray;
+	margin: 10px;
+	box-shadow: 5px 5px 5px gray;
+}
