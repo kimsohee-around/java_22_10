@@ -20,16 +20,25 @@ ul {
 ul > li {
 	float:left;
 }
+ul > li:last-child{
+	margin-left: 50px;
+}
 /* 선택자 기호 : 공백 은 자손 요소 */
 ul a{
 	background-color: brown;
 	display: block;
 	padding :20px;
+	text-decoration: none;
+	color: white;
 	
+}
+/* 방문한 링크의 스타일 : visited 하고 hover 순서대로 설정 */
+a:visited {
+	color : white;
 }
 /* 가상 선택자 : hover는 마우스 올릴때 동작하는 css */
 a:hover {
-	color: white;
+	color: lime;
 	cursor: pointer;
 }
 nav{  }
