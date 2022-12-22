@@ -37,6 +37,7 @@ main{
 	background-color: azure;
 	height: 500px;
 	padding: 20px;
+	clear:left;   /* float:left; 적용 없애기 */
 }
 footer{
 	background-color: cornflowerblue;

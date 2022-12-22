@@ -2,7 +2,7 @@
 body {
 	margin:0;
 }
-div.header {
+div.header {   /* div 태그중의 .header */
 	background-color: orange;
 	color : white;
 	padding : 50px 20px;   /* 상하 좌우 내부여백  */
