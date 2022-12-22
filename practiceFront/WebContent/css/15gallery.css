@@ -22,7 +22,11 @@ main{
 
 .gallery {
 	float: left;   /* 부모 태그에 overflow:hidden */
-	border : 1px solid gray;
+	border : 1px solid #ddd;
 	margin: 10px;
-	box-shadow: 5px 5px 5px gray;
+	box-shadow: -5px -5px 5px gray;  /* 그림자크기 가로,세로,radius,색상 */
+}
+
+.gallery:hover {
+	border: 1px solid #777;
 }
