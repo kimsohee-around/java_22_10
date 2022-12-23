@@ -29,7 +29,7 @@ AND tb.PCODE = 'IPAD011';       -- 외부 조인 할때는 조인 조건 아닌 
 --5) 날짜별로 총판매금액을 `날짜(년-월-일) , 총판매금액` 으로 조회합니다.
 SELECT buy_date2, sum(money)
 FROM
-(SELECT TO_CHAR(buy_date,'yyyy-MM-dd') buy_date2 ,tb.pcode,quantity * price  money
+(SELECT TO_CHAR(buy_date,'yyyy-MM-dd') buy_date2 ,quantity * price  money
         FROM TBL_BUY# tb ,TBL_PRODUCT# tp WHERE tb.pcode = tp.PCODE )   -- 서브쿼리
 GROUP BY buy_date2 ORDER BY buy_date2;
 
