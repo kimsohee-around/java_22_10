@@ -69,7 +69,7 @@ INSERT INTO TBL_BUY# (buy_seq,CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES (buy_seq.nextval,'hongGD', 'CJ-BABQ1', 4, '2022-02-11');
 select * from tbl_buy#;
 -- 테이블 추가 (제조회사)
-create table tbl_copration(
+create table tbl_corporation(
         copr_id number(4) primary key,      -- 제조사ID
         title varchar(20) not null,
         tel varchar(20) 
