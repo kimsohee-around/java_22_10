@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1. 자바스크립트 소개</title>
+<!-- 자바스크립트가 작성되는 곳. script 태그 사용 
+	1. head 태그 내부 . 
+	2. body 태그 내부
+	3. 외부의 별도 파일(확장자는 .js)
+	*실행순서는 어느 위치에 있던지 순차적 실행
+	*브라우저가 번역기 이므로 브라우저 개발자도구-콘솔에서도 실행할 수 있습니다.
+ -->
+ <style type="text/css">
+ 		em { color : red; }
+ 		#location { display: none;}
+ </style>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("My name is 나나");
+	
+	</script>
+	<button onclick="alert('나이를 알려주세요.!')">추가정보1</button>
+	<!-- type="button" 이 생략됨. -->
+	<ul>
+		<li>onclick은 이벤트입니다. - 사용자가 버튼을 클릭했을 때 </li>
+		<li>onclick 속성의 내용은 자바스크립트 명령입니다.</li>
+		<li>자바스크립트 명령문은 1개만 작성합니다. 대체로 함수를 실행합니다.</li>
+		<li>자바스크립트는 변수선언에 데이터 형식을 지정하지 않습니다.
+			- 처음에는 정수를 저장했다가 문자열로 타입을 바꿔 저장 가능
+		</li>
+		<li>변수를 선언하지 않고도 사용할 수 있음.(ES6 이후에는 ~~~)</li>
+	</ul>
+	<h3>자바스크립트로 html 문서에 출력하기 </h3>
+	<ul>
+		<li>Writing into an HTML element, <em>using innerHTML.</em></li>
+		<li>Writing into the HTML output <em>using document.write().</em></li>
+		<li>Writing into an alert box, <em>using window.alert().</em></li>
+		<li>Writing into the browser console, <em>using console.log().</em></li>
+	
+	</ul>
+	<script type="text/javascript">
+		document.write("어떻게 문서에 출력될까요?<br>");
+		document.write("함수를 테스트 합니다.");
+		function your_info() {		//함수 정의 : 함수이름은 your_info 입니다.
+			//변수 선언 : var(ES6 이전) 과 let,const(ES6 이후)
+			var your_pet
+			your_pet = prompt('당신의 반려동물 이름은?')		//입력 상자. 입력값은 = 왼쪽 변수에 저장.
+			console.log(your_pet)
+//			document.write("당신의 반려동물은 " + your_pet + " 이군요.!")    
+//			ㄴ 이벤트로 함수 안에서 실행될때. 원래 문서 내용은 없어지고 새로운 document에 출력됩니다. 
+			document.getElementById('animal').innerHTML = your_pet    
+//			ㄴ 요소의 텍스트 컨텐츠를 설정(변경) . 항상 텍스트는 아니고 다른 요소를 넣을 수도 있습니다.
+		    animal = document.getElementById('animal')
+// 			ㄴ 변수를 선언하지 않고도 사용할 수 있음.			
+			console.log(animal)
+			var yn = confirm('무엇을 선택하시겠습니까?')
+			console.log(yn)
+		}
+		function your_addr(){
+			var addr = prompt('당신의 거주지역을 알려주세요.')
+			document.getElementById('addr').innerHTML = addr
+			document.getElementById('location').style.display = 'block'
+			document.getElementById('location').style.color = 'green'
+//			ㄴ 자바스크립트로 CSS 변경하기			
+		}
+		
+	</script>
+	<button onclick="your_info()">추가정보2</button><button onclick="your_addr()">추가정보3</button>
+	<p id="output">
+		당신의 반려동물은 <span id="animal"></span> 이군요!
+	</p>	
+	<h3>자바스크립트로 CSS 변경하기 - 추가정보3 </h3>
+	<p id="location">  <!-- 초기 문서 스타일은 display:none 안보입니다. -->
+		당신의 거주 지역은 <span id="addr"></span> 이군요!
+	</p>
+	<h4>자바스크립트 기본 대화상자</h4>
+	<ul>
+		<!-- 아래 함수들은 window 객체의 메소드. -->
+		<li>alert : 알림</li>
+		<li>prompt : 입력</li>
+		<li>confirm : 확인(true)/취소(false) 중 선택</li>
+	</ul>
+	
+</body>
+</html>
