@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5. 연습2 - 여러가지 테스트</title>
+<script type="text/javascript" src="5practice.js">  /* 5practice.js 파일을 만들어 함수 옮기기 */
+</script>
+
+</head>
+<body>
+	<h3>자바스크립트 기본 활용 연습</h3>
+	<!-- 들여쓰기 정렬 : ctrl + shift + f -->
+	<ol>
+		<li>태그(요소)의 컨텐츠 변경 : innerHTML</li>
+		<li>태그(요소)의 속성값 변경 : 예시 img 태그의 src 속성 변경</li>
+		<li>태그(요소)의 스타일 변경 : 글꼴 색상 변경</li>
+		<li>*위의 3가지를 하기 위해 HTML 태그요소를 가져와야 합니다. -> document.getElementById('요소id속성값')</li>
+	</ol>
+	<hr>
+	<div style="margin: 20px;border: 1px solid gray;">
+		<h4>현재 상태 : <span id='state' style="color:red;">OFF</span></h4>
+		<img alt="light" src="../image/pic_bulboff.gif"  
+		id="light" onclick="lightToggle()" style="cursor: pointer;"><br>
+		<button onclick="lightOn()">불을 켜주세요.</button>
+		<button onclick="lightOff()">불을 꺼주세요.</button>
+	</div>
+
+	
+</body>
+</html>

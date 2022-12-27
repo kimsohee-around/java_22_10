@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>6. 함수 스콥scope 테스트</title>
+<script type="text/javascript">
+	function on() {
+		console.log(bulb)
+		console.log(onoff)
+		onoff.innerHTML='ON'
+		bulb.src="../image/pic_bulbon.gif"; 
+		onoff.style.color = 'green';
+	}
+	function off() {
+		console.log(bulb)
+		console.log(onoff)
+		onoff.innerHTML='OFF'
+		bulb.src="../image/pic_bulboff.gif"; 
+		onoff.style.color = 'red';
+	}
+	function toggle() {  /* 함수scope의 변수는 함수를 벗어나면 사용 못함. */
+		const bulb = document.getElementById('light');
+		const onoff = document.getElementById('state');
+		console.log(light); //가져온 요소 확인
+		console.log(state);
+		if (state.innerHTML == 'ON') { //켜져있는 상태 -> OFF
+			off();
+		} else { //꺼져있는 상태 -> ON
+			on();
+		}
+	}
+</script>
+</head>
+<body>
+<div style="margin: 20px; border: 1px solid gray;">
+		<h4>
+			현재 상태 : <span id='state' style="color: red;">OFF</span>
+		</h4>
+		<img alt="light" src="../image/pic_bulboff.gif" id="light"
+			onclick="toggle()" style="cursor: pointer;"><br>
+		<button onclick="on()">불을 켜주세요.</button>
+		<button onclick="off()">불을 꺼주세요.</button>
+	</div>
+</body>
+</html>
