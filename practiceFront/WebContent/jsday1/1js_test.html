@@ -48,7 +48,7 @@
 			your_pet = prompt('당신의 반려동물 이름은?')		//입력 상자. 입력값은 = 왼쪽 변수에 저장.
 			console.log(your_pet)
 //			document.write("당신의 반려동물은 " + your_pet + " 이군요.!")    
-//			ㄴ 이벤트로 함수 안에서 실행될때. 원래 문서 내용은 없어지고 새로운 document에 출력됩니다. 
+//			ㄴ 이벤트로 함수 안에서 실행될때. 이미 html 문서가 완료된 다음이라 원래 문서 내용은 없어지고 새로운 document에 출력됩니다. 
 			document.getElementById('animal').innerHTML = your_pet    
 //			ㄴ 요소의 텍스트 컨텐츠를 설정(변경) . 항상 텍스트는 아니고 다른 요소를 넣을 수도 있습니다.
 		    animal = document.getElementById('animal')

@@ -1,3 +1,6 @@
+/*
+
+*/
 /**
  * var의 변수의 동작을 확인
  */
@@ -25,6 +28,7 @@ if(true) {
 document.write('v1=')
 document.write(v1)
 document.write('<br>')
+
 
 
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5. 연습</title>
+</head>
+<body>
+	<h3>자바스크립트 기본 활용 연습</h3>
+	<!-- 들여쓰기 정렬 : ctrl + shift + f -->
+	<ol>
+		<li>태그(요소)의 컨텐츠 변경 : innerHTML</li>
+		<li>태그(요소)의 속성값 변경 : 예시 img 태그의 src 속성 변경</li>
+		<li>태그(요소)의 스타일 변경 : 글꼴 색상 변경</li>
+		<li>*위의 3가지를 하기 위해 요소를 가져와야 합니다. -> document.getElementById('요소id속성값')</li>
+	</ol>
+	<hr>
+	<div style="margin: 20px;border: 1px solid gray;">
+		<h4>현재 상태 : <span id='state'>OFF</span></h4>
+		<img alt="light" src="../image/pic_bulboff.gif"  id="light"><br>
+		<button onclick="lightOn()">불을 켜주세요.</button>
+		<button onclick="lightOff()">불을 꺼주세요.</button>
+	</div>
+
+	<script type="text/javascript">
+		//상수: 변하지 않을 값 또는 객체(여기서는 요소)에 대해 참조식별자 선언
+		const light = document.getElementById('light');		//id값으로 요소 가져오기 -> 상수로 선언.
+		const state = document.getElementById('state');
+		console.log(img);
+		console.log(state);
+		function lightOn() {
+			state.innerHTML='ON';    //글꼴색상:초록			//1번
+			light.src = "../image/pic_bulbon.gif";	//2번
+			state.style.color = 'green';			//3번
+		}
+		function lightOff() {
+			state.innerHTML='OFF';	//글꼴색상:빨강
+			light.src = "../image/pic_bulboff.gif";
+			state.style.color = 'red';
+		}
+	</script>
+</body>
+</html>
