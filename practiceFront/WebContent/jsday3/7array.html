@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>7. 배열</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+input[type="text"] {
+	width: 15%;
+	float: left;
+	margin: 4px;
+}
+
+button.margin10 {
+	margin: 10px;
+}
+</style>
+<script src="7array.js"></script>
+</head>
+<body>
+	<table class="table">
+		<tr>
+			<td style="width: 400px;">let arr1 = [11,22,44,99,55,66]</td>
+			<td><button onclick="print_arr1()"
+					class="btn btn-primary btn-sm">배열 확인</button></td>
+			<td id="print1"></td>
+		</tr>
+		<tr>
+			<td>arr1 sort</td>
+			<td>
+				<button class="btn btn-primary btn-sm"
+					onclick="document.getElementById('print2').innerHTML=arr1.sort()">배열
+					확인</button>
+			</td>
+			<td id="print2"></td>
+		</tr>
+		<tr>
+			<td>arr1 reverse</td>
+			<td>
+				<button class="btn btn-primary btn-sm"
+					onclick="document.getElementById('print3').innerHTML=arr1.reverse()">배열
+					확인</button>
+			</td>
+			<td id="print3"></td>
+		</tr>
+		<tr>
+			<td>arr1 참조배열 변경:arr1=['java','html','css','jquery']</td>
+			<td>
+				<button class="btn btn-primary btn-sm" onclick="change_arr1()">배열
+					확인</button>
+			</td>
+			<td id="print4"></td>
+		</tr>
+		<tr>
+			<td>typeof arr1</td>
+			<td>
+				<button class="btn btn-primary btn-sm"
+					onclick="document.getElementById('print5').innerHTML=typeof arr1">배열
+					확인</button>
+			</td>
+			<td id="print5"></td>
+		</tr>
+	</table>
+	<h4>주요 배열 메소드</h4>
+	<pre>
+    		console.log(arr1.join(' * '))      //join 메소드 : 배열 값을 하나의 문자열로 join
+		출력결과)) 3.14 * css * html * java
+		
+		console.log(arr1.push('jquery'))	  //push 메소드 : 배열 값을 추가(마지막 요소)
+		출력결과)) 5
+
+		console.log(arr1)
+		출력결과)) (5) [3.14, 'css', 'html', 'java', 'jquery']
+
+		arr1.pop()					//pop 메소드 : 배열 마지막 요소값을 추출하여 리턴.
+		리턴결과)) 'jquery'
+		arr1.pop()
+		리턴결과)) 'java'
+		console.log(arr1)
+		출력결과)) (3) [3.14, 'css', 'html']		//2개 추출된어 배열 요소가 변경됨.
+		
+    </pre>
+	<hr>
+	<table class="table">
+		<tr>
+			<td style="width: 400px;">const arr2
+				=['apple','mango','kiwi','banan','딸기','사과']</td>
+			<td>
+				<button onclick="print_arr2()" class="btn btn-primary btn-sm">배열
+					확인</button>
+			</td>
+			<td id="print6"></td>
+		</tr>
+		<tr>
+			<td>arr2 sort</td>
+			<td>
+				<button onclick="sort_arr2()" class="btn btn-primary btn-sm">배열
+					확인</button>
+			</td>
+			<td id="print7"></td>
+		</tr>
+		<tr>
+			<td>arr2 reverse</td>
+			<td>
+				<button onclick="reverse_arr2()" class="btn btn-primary btn-sm">배열
+					확인</button>
+			</td>
+			<td id="print8"></td>
+		</tr>
+		<tr>
+			<td>arr2 참조배열 변경 <br> ->
+				arr2=['java','html','css','jquery'] (실행결과 오류:이유 const 선언은 객체 변경안됨)
+			</td>
+			<td>
+				<button onclick="arr2=['java','html','css','jquery']"
+					class="btn btn-primary btn-sm">변경</button>
+			</td>
+			<td>결과 확인은 첫번째 버튼 클릭하세요.</td>
+		</tr>
+		<tr>
+			<td>arr2 참조배열 변경 <br> -> arr2[2]='python'(const 선언일때 요소값
+				변경은 가능.)
+			</td>
+			<td>
+				<button onclick="arr2[2]='python'" class="btn btn-primary btn-sm">변경</button>
+			</td>
+			<td>결과 확인은 첫번째 버튼 클릭하세요.</td>
+		</tr>
+	</table>
+	<hr>
+	<pre>
+			const arr3 = ['🧑사나','채영👩‍🦰','모모','나연','다현']
+            console.log(arr3)
+            let result ='&#60;ul&#62;'		//&#60; 는 &lt;에 대한 10진수 코드값
+            for(let i=0;i&lt;arr3.length;i++){
+               result += '&lt;li&gt;' + arr3[i] +'&lt;/li&gt;'
+            }
+            result += '&lt;/ul&gt;'
+           document.getElementById('twice').innerHTML=result
+	</pre>
+	<p id="twice"></p>
+	<button onclick="list_arr3()" class="btn btn-primary margin10">실행</button>
+	<a href="https://www.w3schools.com/html/html_entities.asp">참고: HTML 기호표기</a>
+	
+	<p id="twicee"></p>
+	<button onclick="foreach_arr3()" class="btn btn-primary margin10">foreach 실행</button>
+	</body>
+</html>
