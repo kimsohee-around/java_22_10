@@ -50,9 +50,10 @@ const arr2 =['apple','mango','kiwi','banan','딸기','사과']				//const(상수
  	function foreach_arr3() {
  			const arr3 = ['🧑sana','채영👩‍🦰','momo','나연','다현']
  			 let result ='<ul>'	
- 			arr3.forEach(function(value,index,array){		//배열변수.forEach(인자는 배열요소에 대해 각각 실행할 함수)
- 													// 인자로 사용되는 함수(콜백callback 함수)는 함수이름 없이 사용
- 													// 함수 인자 value,index,array는 배열에서 실행될때 정해진 순서
+ 			arr3.forEach(function(value,index,array){		
+ 			//배열변수.forEach(인자는 배열요소에 대해 각각 실행할 함수)
+ 			// 인자로 사용되는 함수(콜백callback 함수)는 함수이름 없이 사용
+ // 함수 인자 value,index,array는 배열에서 실행될때 정해진 순서. 매개변수명은 임의로 정함.
  				result += `<li>${value}(${index})</li>`			 //${}는 변수값을 출력기호						
  				console.log(`<li>${value}(${index}/${array.length})</li>`)
  			})

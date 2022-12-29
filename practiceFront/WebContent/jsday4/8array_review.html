@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>8. 배열 복습</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+	table {
+		width :  90%;
+	}
+	th {
+		width : 13%;
+		background-color: tomato;
+		color:white
+		
+	}
+	td {
+		width: 10%;
+		
+	}
+	th,td {
+		border: 1px solid tomato;
+		padding : 7px 12px;
+		text-align: center;
+	}
+
+
+</style>
+</head>
+<body>
+<h3>배열과 foreach 연습 예제</h3>
+<p> 
+아래 그림과 같이 table을 이용하여 시간표를 만들어 봅시다.
+2개의 배열에 저장된 값을 사용하세요.  
+웹페이지를 요청하면 바로 화면에 출력하는 것으로 함수는 사용하지 않습니다.<br>
+<img alt="예시" src="20221229_1.png" width="600px"> 
+</p>
+<pre>
+	//자바스크립트 배열
+	const time = ['09:00','11:00','12:30','14:00','16:45']
+	const todo = ['수업','과제','점심식사','주간회의','자료조사']
+</pre>
+<hr>
+<h4>오늘의 스케쥴</h4>
+    <table>
+        <tr id="time">  
+            <!-- 시간 -->
+
+        </tr>
+        <tr id="todo">
+            <!-- 할일 -->
+        </tr>
+    </table>
+<script src="8review__.js" type="text/javascript">
+</script>    
+</body>
+</html>

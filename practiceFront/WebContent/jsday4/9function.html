@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9. function</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="9function.js">
+	</script>
+</head>
+<body>
+<h3>자바스크립트 함수</h3>
+<ul>
+    <li>함수의 목적 : 코드의 재사용.</li>
+    <li>자바스크립트에서 함수는 데이터 타입 중 하나 입니다.</li>
+    <li>자바의 메소드처럼 필요에 따라 인자, 리턴값이 있습니다.</li>
+</ul>
+<h5>함수의 기본형식 1. 함수 리터럴을 식별자에 대입하여 선언하기(대입문)</h5>
+<pre>
+        const myfunc1 = function(x) {       //myfunc1은 함수 리터럴 참조하는 식별자.
+            console.log('myfunc1 함수 입니다.');
+            return x*11 + 12;     //리턴이 있습니다.
+        }
+
+        //함수 호출.- 위의 함수 식별자(변수)로 호출합니다.
+        let result = myfunc1(10);   //함수 실행후 리턴값은 result 변수에 저장합니다.
+        console.log('result : ' + result);
+
+        result = myfunc1();         //인자값이 없음 -> 리턴값계산못함 -> 리턴 NaN(not a number)
+        console.log('result : ' + result);
+    </pre>
+<h5>함수의 기본형식 2. 리터럴 없이 선언하기, 함수이름을 사용</h5>
+<pre>
+        //식별자선언이 생략된 형태이고 자동으로 함수이름이 식별자가 됩니다.
+        function myfunc2(y) {
+            console.log('myfunc2입니다.');
+            console.log('myfunc1에서 지정하지 않은 함수이름이 있습니다.')
+            return y*11 -12;
+        }
+
+        result = myfunc2(10);       //myfunc2가 함수이름이면서 생략된 식별자(변수)
+        console.log('result : ' + result)
+    </pre>
+<h5>함수의 기본형식 3. 함수리터럴을 화살표 함수로 사용</h5>
+<pre>
+        const myfunc3 = (x) => x*11+12;     //myfunc1과 함수의 실행 내용은 동일
+        console.log('myfunc3 result : ' + myfunc3(10))      //함수 호출.리턴값 콘솔 출력
+
+        const myfunc4 = (x) => {
+            console.log('myfunc4 : myfunc2와 동일하게 동작합니다.')
+            return x*11-12;
+        };  //화살표 함수에서 실행명령이 여러개이면 { } 사용.
+
+        console.log('result : ' + myfunc4(10))      //함수 호출
+
+        const myfunc5 = (x) => console.log('myfunc5 함수 호출 x = ' + x);
+        myfunc5(999);           //리턴값 없습니다.
+        console.log(myfunc5(999));      //리턴값이 없으므로 undefined 출력
+</pre>
+<h5></h5>
+
+</body>
+</html>
