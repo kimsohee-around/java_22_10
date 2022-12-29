@@ -8,7 +8,8 @@ const myfunc1 = function(x) {			//자바스크립트에서는 함수도 값이�
 }
 let result = myfunc1(10)
 console.log('result : ' + result)
-console.log(`result : ${result}`)			//${} 변수,수식,함수 결과값 출력하는 표현식
+console.log(`result : ${result}`)			
+//${} 변수,수식,함수 결과값 출력하는 표현식  ``(백틱) 과 함께 사용해야 합니다.
 
 // 형식 2: const 변수 선언 없이 선언
 function myfunc2(y) {
