@@ -5,6 +5,7 @@ const time = ['09:00','11:00','12:30','14:00','16:45']
 const todo = ['수업','과제','점심식사','주간회의','자료조사']
 
 const myfunc = (v,i) => result+=`<td>${v}(${i})</td>`
+//매개변수 v는 배열의 값, i는 인덱스 ---> forEach 함수에서 쓰일 때 정해진 순서입니다.
 let result ='<th>TIME</th>'	
 /*
 time.forEach(
