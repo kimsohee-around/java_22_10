@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>11. 버튼 동작을 addEventListener 의 콜백함수로 처리</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style type="text/css">
+    	body {padding : 20px;}
+    	.mysel {
+    		background-color: cornflowerblue;
+    		color: lime;
+    	}
+    </style>
+</head>
+<body>
+<!-- 
+1) 버튼 동작을 addEventListener 로 처리합니다.
+2) form 태그 없이 입력요소 값을 가져옵니다.
+3) 1) 을 비롯해 기타 callback 함수 사용 예시
+ -->
+	<h3>산술연산 계산기</h3>
+<!-- 오직 클라이언트에서만 input ,select 요소 입력값을 처리할 때 (form 사용안함): id 사용으로 가능-->
+	<div class="form-group row">
+		<div class="col-xs-2">
+			<label for="operand1">operand1</label>
+			<!-- 피연산자1-->
+			<input class="form-control" id="operand1" type="text">
+		</div>
+		<div class="col-xs-2">
+			<label for="operator">operator</label>
+			<!-- 연산자-->
+			<select id="operator" class="form-control mysel">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+		</div>
+		<div class="col-xs-2">
+			<label for="operand2">operand2</label>
+			<!-- 피연산자2-->
+			<input class="form-control" id="operand2" type="text">
+		</div>
+		<div class="col-xs-2">
+			<label for="result">결과= ?</label>&nbsp;&nbsp;&nbsp;
+			<button id="execute" class="btn btn-success btn-xs">실행</button>
+			<input class="form-control" id="result" type="text" readonly>
+			<!-- readonly 속성은 쓰기 못하고 출력(읽기)용 -->
+		</div>
+	</div>
+	<p>
+		<!-- type=button . id 값이 필요합니다. -->
+		<button id="btn_event">이 버튼은 addEventListener 로 실행합니다.</button>
+	</p>
+	<script type="text/javascript" src="11callback.js"></script>
+</body>
+</html>
