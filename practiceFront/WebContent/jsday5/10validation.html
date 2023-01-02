@@ -21,11 +21,14 @@ var selectFormElementValue = document.forms[index].elements[index].value;
      -->
      <!-- document.forms[0] -->
      <!-- action은 서버페이지로 작성해야 입력값을 처리할수 있습니다. 테스트를 위해서 html -->
+     <!-- form 의 onsubmit 은 submit 버튼이 실행될때 함수리턴이 참일때만 action 으로 -->
      <form action="10result.html"  onsubmit="return forms0_check()" name="frm0">
         <!-- document.forms[0].elements[0] -->
         <input type="text" name="user" placeholder="이름을 입력하세요."><br>
         <!-- document.forms[0].elements[1] -->
-        <input type="email" name="email" placeholder="이메일을 입력하세요." >
+        <input type="email" name="email" placeholder="이메일을 입력하세요." ><br>
+        <input type="password" name="password" placeholder="패스워드 4자리 이상을 입력하세요.">
+        
         <!--  form 태그안의 버튼 type=submit -->
         <button>전송1</button>  <!-- submit 버튼. onsubmit="return forms0_check()" 동작시킬때 -->
         <button onclick="btn_check()" type="button">전송2</button>  <!--일반버튼  -->
