@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>10.유효성(validation) : 입력요소 유효성 검사 </title>
+</head>
+<body>
+    <!--  유효성 검사 : 입력요소 값들이 처리조건(요구사항)을 만족하는지 검사.
+		form 태그의 입력 요소 값들은 submit 으로 서버로 보내집니다.서버의 url은 action 속성값.
+			ㄴ input의 name,value 속성이 한쌍으로 url에 표시가 됩니다.
+			ㄴ 서버로 값이 전달되기 전에 사용자 측에서 값을 검사 -> 자바스크립트
+        form 태그로 서버에 보내기 위해 입력요소(또는 입력요소의 값)를 가져오는 방법
+         
+var selectForm = document.forms[index];     //form 태그 많은 때 순서가 index
+var selectFormElement = document.forms[index].elements[index];
+                ㄴ elements[index]는 form 태그 내부의 입력요소들의 순서가 index
+var selectFormElementValue = selectFomrElement.value;       //value속성이 입력값입니다.
+// 또는
+var selectFormElementValue = document.forms[index].elements[index].value;    
+
+     -->
+     <!-- document.forms[0] -->
+     <!-- action은 서버페이지로 작성해야 입력값을 처리할수 있습니다. 테스트를 위해서 html -->
+     <form action="10result.html"  onsubmit="return forms0_check()" name="frm0">
+        <!-- document.forms[0].elements[0] -->
+        <input type="text" name="user" placeholder="이름을 입력하세요."><br>
+        <!-- document.forms[0].elements[1] -->
+        <input type="email" name="email" placeholder="이메일을 입력하세요." >
+        <!--  form 태그안의 버튼 type=submit -->
+        <button>전송1</button>  <!-- submit 버튼. onsubmit="return forms0_check()" 동작시킬때 -->
+        <button onclick="btn_check()" type="button">전송2</button>  <!--일반버튼  -->
+     </form> 
+     <!-- document.forms[1] -->
+     <form action="" id="momo">    
+        <button onclick="alert(document.forms[1].id)">테스트1</button>
+     </form>
+     <!-- document.forms[2] -->
+     <form action="" id="sana">
+        <button>테스트2</button>
+     </form>
+     <script type="text/javascript" src="10validation.js"></script>
+</body>
+</html>
