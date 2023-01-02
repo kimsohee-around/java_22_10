@@ -41,6 +41,4 @@ const operatorResult = function() {
 	} //if end
 	
 }
-
-
-document.getElementById('execute').addEventListener('click',operatorResult)
+document.getElementById('execute').addEventListener('click',operatorResult)		//함수는 미리 정의되어 있어야 합니다.
