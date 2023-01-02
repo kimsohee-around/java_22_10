@@ -24,19 +24,23 @@ const operatorResult = function() {
 		switch(op) {
 			case '+':
 			//보류
+			//temp = op1.value+op2.value			//op1.value, op2.value 는 string.  + 는 문자열 연결
+			temp = Number(op1.value)+Number(op2.value)
 			break
 			case '-':
-			temp = op1.value-op2.value
+			temp = op1.value-op2.value			// 사칙연산 -,*,/,% 는 string 이 number로 자동변환
 			break
 			case '*':
 			temp = op1.value*op2.value
 			break
 			case '/':
 			temp = op1.value/op2.value
+			temp = temp.toFixed(2)		//소수점 반올림 자리수 지정
 			break
 			default :
 				alert('알 수 없는 연산입니다.')
 		} //switch end
+		if(isNaN(temp)) alert('피연산자는 숫자로 입력해주세요.')
 		document.getElementById('result').value = temp
 	} //if end
 	
