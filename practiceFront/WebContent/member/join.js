@@ -92,7 +92,7 @@ $ 는 끝지정
 
     if(isValid) {   //유효성 통과하여 제출합니다. 
         frm.action='success.html'
- //       frm.submit()
+        frm.submit()
     } else {
         alert('유효성 통과 실패!!!')
     }
