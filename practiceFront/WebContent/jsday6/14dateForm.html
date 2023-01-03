@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>14. 날짜 입력요소 테스트</title>
+</head>
+<body>
+<!-- 처리조건 : 숙박일수와 입실날짜를 선택하면 퇴실날짜 자동계산 출력. -->
+<form action="">
+	숙박일수 : 
+	<select name="days" id="selectNight">  <!-- 이벤트를 처리할 요소에 id값 주기 -->
+		<option>선택</option>
+		<option value="1">1박</option>
+		<option value="2">2박</option>
+		<option value="3">3박</option>
+		<option value="4">4박</option>
+	</select>
+	입실날짜 : <input type="date" name="start" id="startDate">
+	퇴실날짜 : <input type="date" name="end">
+</form>
+<script type="text/javascript" src=14dateForm.js></script>
+</body>
+</html>

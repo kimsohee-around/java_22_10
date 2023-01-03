@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>회원 가입</title>
 <link rel="stylesheet" href="join.css">
+<script type="text/javascript" src="join.js"></script>
 </head>
 <body>
 <!-- Form 양식 만들기
@@ -108,10 +109,11 @@ http://localhost:8081/practiceFront/day3/
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button onclick="func_join()">가입하기1</button>     
-			<button id="join">가입하기2</button>  
+			<button onclick="func_join()" type="button">가입하기1</button>     
+			<button id="join" type="button">가입하기2</button>  
 			<button type="reset" >다시쓰기</button>
-			<a href="11Form.html">새로 고침</a>
+			<button type="button" onclick="location.href='join.html'" >새로 고침</button>
+			<!-- <a href="11Form.html">새로고침</a> -->
 		</td>
 	</tr>
 </table>
