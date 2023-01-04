@@ -7,6 +7,30 @@
  */
  let arr1 = [11,22,44,99,55,66]				//global scope(전역 변수)
  
+//정렬 메소드 테스트
+ let test = [11,22,234,99,55,66]
+ 
+// test.sort()				//자바스크립트에서 sort 결과는 데이터를 문자열로 취급
+ test.sort(function(a,b){   //a(왼쪽),b(오른쪽)      //number 비교 정렬할 때 함수를 작성.
+	if(a<b) return -1
+	return 1	     //오름차순
+	// return a-b
+ })
+
+ console.log(test)		//개발자도구에서 확인
+
+ test.sort(function(a,b){		
+	if(a>b) return -1		//내림차순
+	return 1
+	//return b-a
+ })
+ console.log(test)
+
+ test.sort((a,b)=> {return a-b})
+ console.log(test)
+
+
+
  function print_arr1(){
  	document.getElementById('print1').innerHTML = arr1	//toString() 함수 실행결과
     console.log(arr1)

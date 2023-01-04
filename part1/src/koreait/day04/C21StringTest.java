@@ -37,7 +37,6 @@ public class C21StringTest {
 		System.out.println("name5 == name6 ? " + (name5==name6));		//1) true  2)false
 		
 		
-		
 	}
 
 }
