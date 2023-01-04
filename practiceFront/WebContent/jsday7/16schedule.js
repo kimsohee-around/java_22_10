@@ -17,6 +17,7 @@ const scheduleTable = (object)=>{
 				</tr>` 
 }
 schedule.forEach(scheduleTable)	
+
 document.getElementById('contents').innerHTML=result
 document.getElementById('btn_add').addEventListener('click',function(){		//추가
 	const atime = prompt('시간을 입력하세요.')
