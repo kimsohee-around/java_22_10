@@ -10,7 +10,7 @@ const testKakao =
    xhr.open("GET",`https://dapi.kakao.com/v2/search/vclip?query=어텐션&page=1&size=20&sort=recency`);      //size는 기본값 10
    															//sort는 accuracy 또는 recency
   //2.요청 header 설정 : 인증키. setRequestHeader(헤더이름,헤더값)
-   xhr.setRequestHeader("Authorization","KakaoAK cd9aa70b4fd4d31628ab2cbbdaa3542b");
+   xhr.setRequestHeader("Authorization","KakaoAK {rest_api_key값}");
    
    //3.HTTP요청 전송 : 추가적인 파라미터는 함께 전송
    xhr.send();
