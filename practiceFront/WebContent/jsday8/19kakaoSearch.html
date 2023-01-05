@@ -11,11 +11,13 @@
         placeholder="페이지 크기(리스트 갯수)">
         <label for="page">page : </label> <input type="number" id="page" value="1" max="50" min="1"
         placeholder="페이지 번호">
-        <input type="radio" id="accuracy" checked name="sort"><label for="accuracy">정확도순 </label> 
-        <input type="radio" id="recency" name="sort" ><label for="recency">최신순 </label> 
+        <input type="radio" id="accuracy"  name="sort" ><label for="accuracy">정확도순 </label> 
+        <input type="radio" id="recency" name="sort" checked> <!-- checked="checked" 에서 생략된 형식 -->
+        <label for="recency">최신순 </label> 
         <button id="search" style="padding: 4px 7px ;margin-left:10px">검색</button>
     </p>
     <hr>
+    <p id="count"></p>
     <h4>검색 결과</h4>
     <p id="list"></p>
     <script type="text/javascript" src="19search.js"></script>
