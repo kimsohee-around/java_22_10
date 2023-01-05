@@ -88,7 +88,7 @@
         document.querySelector('p a').href='https://www.naver.com'
     </pre>
 <h3>Element Object 의 프로퍼티</h3>
-<div style="padding: 10px;width:70%;margin: auto;background-color: antiquewhite;" id="kpop">
+<div id="kpop" style="padding: 10px;width:400px;margin-left: 220px;background-color: antiquewhite;float:left" >
 	 <h4>KPOP</h4>
         <ul>
             <li>트와이스</li>
@@ -102,8 +102,11 @@
             <li>신비</li>
         </ul>
 </div>
+<div>
+	<img alt="" src="20230105_2.png" width="300px;">
+</div>
 <pre style="padding: 10px;width:70%;margin: auto;">
-  		const kpop = document.getElementById('kpop') //document.querySelector('#kpop')
+		const kpop = document.getElementById('kpop') //document.querySelector('#kpop')
         console.log(kpop)
         console.log('1.childNodes')
         console.log(kpop.childNodes)    
@@ -124,25 +127,28 @@
         console.log(child1.innerHTML)
         console.log('8.첫번째 자식의 형제 요소')
         console.log(kpop.firstElementChild.nextElementSibling.innerHTML)
+        console.log('9.마지막 자식의 형제 요소')
+        console.log(kpop.lastElementChild.nextElementSibling)  //다음형제
+        console.log(kpop.lastElementChild.previousElementSibling)  //앞에 나온 형제
 </pre>
 <script type="text/javascript">
-console.log(kpop.childNodes)
-console.log(kpop.children)
-console.log(kpop.firstChild)
-console.log(kpop.firstElementChild)
-console.log(kpop.lastChild)
-console.log(kpop.lastElementChild)
-const child1 = kpop.lastElementChild
-console.log('-.마지막 자식요소의 컨텐츠')
-console.log(child1.innerHTML)
-console.log(kpop.lastElementChild.innerHTML)
-console.log('-.첫번째 자식요소의 컨텐츠')
-console.log(kpop.firstElementChild.innerHTML)
-console.log('-.첫번째 자식의 형제 요소')
-console.log(kpop.firstElementChild.nextElementSibling.innerHTML)
-console.log('-.마지막 자식의 형제 요소')
-console.log(kpop.lastElementChild.nextElementSibling)  //다음형제
-console.log(kpop.lastElementChild.previousElementSibling)  //앞에 나온 형제
+		console.log(kpop.childNodes)
+		console.log(kpop.children)
+		console.log(kpop.firstChild)
+		console.log(kpop.firstElementChild)
+		console.log(kpop.lastChild)
+		console.log(kpop.lastElementChild)
+		const child1 = kpop.lastElementChild
+		console.log('-.마지막 자식요소의 컨텐츠')
+		console.log(child1.innerHTML)
+		console.log(kpop.lastElementChild.innerHTML)
+		console.log('-.첫번째 자식요소의 컨텐츠')
+		console.log(kpop.firstElementChild.innerHTML)
+		console.log('-.첫번째 자식의 형제 요소')
+		console.log(kpop.firstElementChild.nextElementSibling.innerHTML)
+		console.log('-.마지막 자식의 형제 요소')
+		console.log(kpop.lastElementChild.nextElementSibling)  //다음형제
+		console.log(kpop.lastElementChild.previousElementSibling)  //앞에 나온 형제
 </script>
     
     
