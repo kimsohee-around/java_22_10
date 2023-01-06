@@ -44,8 +44,8 @@ public class BuyDao {
 						rs.getString(2),
 						rs.getString(3),
 						rs.getInt(4),
-						rs.getTimestamp(5),
-						rs.getDate(6)
+						rs.getTimestamp(5),  
+						rs.getDate(5)
 					));
 		}
 		
@@ -64,12 +64,12 @@ public class BuyDao {
 		ResultSet rs = pstmt.executeQuery();
 		
 		if(rs.next()) {
-			new Buy(rs.getInt(1),
+			result = new Buy(rs.getInt(1),
 						rs.getString(2),
 						rs.getString(3),
 						rs.getInt(4),
 						rs.getTimestamp(5),
-						rs.getDate(6)
+						rs.getDate(5)
 					);
 		}
 		
@@ -80,7 +80,9 @@ public class BuyDao {
 	//`구매 날짜(yyyy-mm-dd)` 를 입력으로 해당 `구매내역 select`가 출력 : 구매날짜 입력은 사용자 UI에서 받으면 String  
 	public List<Buy> selectByDate(String date) throws SQLException{
 		List<Buy> list = new ArrayList<Buy>();
-		String sql ="select * from tbl_buy# where buy_date = ? ";
+		String sql ="select * from tbl_buy# where to_char(buy_date,'yyyy-mm-dd') = ? ";   
+		// ? 문자열 날짜 패턴이 yyyy-mm-dd 라고 할때
+		//select * from tbl_buy# where to_char(buy_date,'yyyy-mm-dd')='2022-02-11';
 		Connection conn = OracleUtil.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, date);
@@ -92,12 +94,31 @@ public class BuyDao {
 						rs.getString(3),
 						rs.getInt(4),
 						rs.getTimestamp(5),
-						rs.getDate(6)
+						rs.getDate(5)
 					));
 		}
 		
 		return list;
 		
 	}
+	
+	public List<BuyCustomer> selectBuyCustomer(String pcode) throws SQLException {
+		
+		List<BuyCustomer> list = new ArrayList<BuyCustomer>();
+		String sql ="SELECT tb.CUSTOM_ID ,name,quantity FROM TBL_CUSTOM# tc ,TBL_BUY# tb \r\n"
+				+ "WHERE tc.CUSTOM_ID = tb.CUSTOM_ID AND tb.PCODE = ?";
+		Connection conn = OracleUtil.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, pcode);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			list.add(new BuyCustomer(rs.getString(1),rs.getString(2),rs.getInt(3)));
+		}
+		
+		return list;
+	}
+	
+	
+	
 
 }
