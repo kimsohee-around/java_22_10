@@ -68,7 +68,7 @@ VALUES (buy_seq.nextval,'twice', 'CHR-J59', 2, '2022-02-12');
 INSERT INTO TBL_BUY# (buy_seq,CUSTOM_ID, PCODE, QUANTITY, BUY_DATE)
 VALUES (buy_seq.nextval,'hongGD', 'CJ-BABQ1', 4, '2022-02-11');
 select * from tbl_buy#;
-select * from tbl_buy# where to_timestamp(buy_date,'yyyy-mm-dd')='2022-02-07';
+select * from tbl_buy# where to_char(buy_date,'yyyy-mm-dd')='2022-02-11';
 -- 테이블 추가 (제조회사)
 create table tbl_corporation(
         copr_id number(4) primary key,      -- 제조사ID

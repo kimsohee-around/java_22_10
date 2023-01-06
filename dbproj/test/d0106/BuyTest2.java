@@ -61,7 +61,7 @@ class BuyTest2 {
 				.pcode("dk_143")
 				.build();
 		
-		System.out.println("buy == 비교 :" +(buy==buy2) );	//toString 문자열의 참조값 비교
+		System.out.println("buy == 비교 :" +(buy.toString()==buy2.toString()) );	//toString 문자열의 참조값 비교
 		System.out.println("buy 해시코드 비교 :" +(buy.hashCode() ==buy2.hashCode()) );	//객체의 해쉬코드값 비교
 		System.out.println("buy equals 비교 :" + buy.equals(buy2));   
 		//toString 문자열 비교이나 equals 재정의 했으므로 재정의 한 equals 에 따라서 참 또는 거짓 
@@ -74,7 +74,7 @@ class BuyTest2 {
 	void buyCustomer() {
 		BuyCustomer cus1 = new BuyCustomer("aaa", "모모", 2);
 		BuyCustomer cus2 = new BuyCustomer("aaa", "모모", 2);
-		BuyCustomer cus3=cus1;
+		BuyCustomer cus3=cus1;			//cus1,cus3은 동일한 객체를 참조. cus1.equals(cus3)는 참.
 		System.out.println(cus1==cus2);				//false
 		System.out.println(cus1.hashCode()==cus2.hashCode());	//false
 		System.out.println(cus1.toString().equals(cus2.toString()));  //true

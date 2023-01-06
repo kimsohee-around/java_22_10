@@ -122,7 +122,7 @@ SELECT TO_DATE('2017-12-02','YYYY-MM-DD') -  TO_DATE('2017-11-29', 'YYYY-MM-DD')
 FROM DUAL;
 
 
-
+select seq.nextval from dual;
 
 
 

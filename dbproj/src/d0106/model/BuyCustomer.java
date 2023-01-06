@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class BuyCustomer {
 	private String custom_id;
 	private String name;
 	private int quantity;
+	
+	
 }
