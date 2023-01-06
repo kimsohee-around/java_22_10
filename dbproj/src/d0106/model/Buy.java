@@ -26,7 +26,7 @@ public class Buy {
 	//2개의 객체 비교를 위해 equals 가 참이고 hashCode값이 같으면 `동일(==)하다.` 조건식이 참.
 	//    -> 2개의 메소드가 모두 재정의 되어 있을때 이 클래스를 VO(Value Object) 라고 합니다.
 	@Override
-	public int hashCode() {			//3개의 필드값이 같다면 해시코드값도 동일하게 생성합니다.
+	public int hashCode() {			//3개의 필드값이 같다면 해시코드값도  수식으로 동일하게 생성합니다.
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + buy_seq;

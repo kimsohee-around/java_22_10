@@ -1,4 +1,4 @@
-package d0106.dao;
+package d0106.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import d0106.model.Buy;
+import d0106.model.BuyCustomer;
 import jdbc.util.OracleUtil;
 
 public class BuyDao {
