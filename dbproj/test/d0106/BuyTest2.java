@@ -48,7 +48,7 @@ class BuyTest2 {
 
 	
 	@DisplayName("Buy 객체 2개가 같은지 비교 합니다.")
-	//@Test
+	@Test
 	void test() {
 		Buy buy = new Buy(0, "twice", "dk_143", 0, null, null);
 		Buy buy2 = Buy.builder()
@@ -70,15 +70,24 @@ class BuyTest2 {
 		//assertEquals(buy, buy3);	//실패
 	}
 	@DisplayName("equals 와 hashcode 가 재정의 되지 않은 객체 비교")
-	//@Test
+	@Test
 	void buyCustomer() {
 		BuyCustomer cus1 = new BuyCustomer("aaa", "모모", 2);
 		BuyCustomer cus2 = new BuyCustomer("aaa", "모모", 2);
-		
+		BuyCustomer cus3=cus1;
 		System.out.println(cus1==cus2);				//false
 		System.out.println(cus1.hashCode()==cus2.hashCode());	//false
 		System.out.println(cus1.toString().equals(cus2.toString()));  //true
 		System.out.println(cus1.equals(cus2));		//false
+		System.out.println(cus1.equals(cus1));		//true
+		System.out.println(cus1.equals(cus3));		//true
+		//equals 재정의 하기 전
+		/*
+		 *  public boolean equals(Object obj) {
+        		return (this == obj);			//obj 가 자기자신일때만 참.
+    		}
+		 * 
+		 */
 	}
 	
 	
