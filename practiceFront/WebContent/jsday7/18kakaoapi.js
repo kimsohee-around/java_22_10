@@ -21,7 +21,8 @@ const testKakao =
       //응답코드가 200일때만 정상 
       if(xhr.status==200) {    //status 프로퍼티는 응답코드 저장
          alert('kakao 검색 응답을 받았습니다.')
-         let $response = JSON.parse(xhr.response)        //xhr.response 는 문자열 -> 자바스크립트 객체로 변환
+         let $response = JSON.parse(xhr.response)        
+//xhr.response 는 문자열 -> 자바스크립트 객체로 변환
          results = $response.documents       //author,datetime, title,url,play-time,thumbnail 속성으로 구성된 객체 배열
             
       } //if 끝
